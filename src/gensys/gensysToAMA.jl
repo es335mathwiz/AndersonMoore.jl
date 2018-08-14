@@ -107,7 +107,7 @@
             if aimcode == 1
                 
                 #    scof = SPObstruct(theH,bb,neq,1,1);not needed for generating sims output
-                phi  = \(theH0 + theHP * bb) #inv
+                phi  = inv(theH0 + theHP * bb) #inv
                 theF = -phi * theHP
                 ncpi = size(pi, 2)
                 println("gensysToAMA:converting ama output to gensys format")
@@ -242,4 +242,6 @@
             #error('gensysToAMA:wrong number of args')
         #end
         end
+
+        return G1,CC,impact,fmat,fwt,ywt,gev,eu
     end
