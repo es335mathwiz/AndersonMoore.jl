@@ -173,7 +173,12 @@ include(test_path)
     #@test AMAerrTests.tooManyExactShifts()
     #@test AMAerrTests.tooManyNumericShifts()
     @test AMAerrTests.spurious()
-    
+end
+
+test_path = joinpath(dirname(@__FILE__), "defineGensysTestFuncs.jl")
+include(test_path)
+@testset "test gensysToAMA" begin
+    @test GensysTests.test1()
 end
     
 
