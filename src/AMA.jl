@@ -8,9 +8,9 @@ const lib = Libdl.dlopen(normpath(joinpath(dirname(@__FILE__), "..", "deps", "li
 const sym = Libdl.dlsym(lib, :callSparseAim)
 
 # Include all files    
-for (_, _, files) in walkdir(joinpath(dirname(@__FILE__), "AMA"))
+for (root, dirs, files) in walkdir(joinpath(dirname(@__FILE__)))#, "AMA"))
     for file in files
-        include(joinpath("AMA", file))
+        file == "AMA.jl" ? nothing : include(joinpath(root, file))
     end
 end
 

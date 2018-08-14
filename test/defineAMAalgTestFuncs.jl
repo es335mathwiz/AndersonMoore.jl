@@ -1,6 +1,6 @@
 module AMAalgTests
 
-# include("../src/AMA.jl")
+# include(joinpath(dirname(@__FILE__), "..", "src", "AMA.jl")
 # test AMAalg
 using ..AMA, MAT
     

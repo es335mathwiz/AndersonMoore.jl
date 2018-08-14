@@ -1,7 +1,7 @@
 #function [G1,CC,impact,fmat,fwt,ywt,gev,eu]=
 
 
-    function gensysToAMA(g0, g1, cc, psi, pi, div, varargin = "" )
+    function gensysToAMA(g0, g1, cc, psi, pi, div, varargin = nothing )
         # function [G1,CC,impact,fmat,fwt,ywt,gev,eu]=gensysToAMA(g0,g1,cc,psi,pi,div,
         # optionalArg)
         # gensys interface to both gensys and the Anderson-Moore algorithm.
@@ -47,7 +47,7 @@
         eu     = nothing #'not set';
         div    = 1.0
 
-        if varargin == ""  #assume calling as though original gensys
+        if varargin == nothing  #assume calling as though original gensys
 
             try
                 println("gensysToAMA: trying gensys on your matlab path")
@@ -96,7 +96,8 @@
             (theHM, theH0, theHP) = convertFromGensysIn(g0, g1, pi)
             condn  = 1.e-10     #AMAalg uses this in zero tests
             uprbnd = 1 + 1.e-6  #allow unit roots
-            theH = [theHM, theH0, theHP]
+            # theH = [theHM, theH0, theHP]
+            theH = hcat(theHM, theH0, theHP)
             neq = size(theHM, 1)
             println("gensysToAMA:running ama")
             (bb, rts, ia, nexact, nnumeric, lgroots, aimcode) =
@@ -106,12 +107,12 @@
             if aimcode == 1
                 
                 #    scof = SPObstruct(theH,bb,neq,1,1);not needed for generating sims output
-                phi  = inv(theH0 + theHP * sparse(bb))
+                phi  = \(theH0 + theHP * bb) #inv
                 theF = -phi * theHP
                 ncpi = size(pi, 2)
                 println("gensysToAMA:converting ama output to gensys format")
                 (CC, G1, impact, ywt, fmat, fwt) =
-                    convertToGensysOut(bb,phi,theF,cc,g0,g1,psi,ncpi);
+                    convertToGensysOut(bb, phi, theF, cc, g0, g1, psi, ncpi)
             else
                 println("no unique solution: not bothering to try and convert to gensys output")
             end
