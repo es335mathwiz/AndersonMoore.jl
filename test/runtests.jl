@@ -4,8 +4,8 @@ run(`make`)
 
 using Base.Test
 
-const AMA_path = joinpath(dirname(@__FILE__), "..", "src", "AMA.jl")
-include(AMA_path)
+const AndersonMoore_path = joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl")
+include(AndersonMoore_path)
 
 test_path = joinpath(dirname(@__FILE__), "defineShiftRightTestFuncs.jl")
 include(test_path)
@@ -116,27 +116,27 @@ include(test_path)
 @test ReducedFormTests.habitmodTrue()
 end
     
-test_path = joinpath(dirname(@__FILE__), "defineAMAalgTestFuncs.jl")
+test_path = joinpath(dirname(@__FILE__), "defineAndersonMooreAlgTestFuncs.jl")
 include(test_path)
-@testset "test AMAalg" begin
+@testset "test AndersonMooreAlg" begin
 
     tic(); # clock speed
     
-    @test AMAalgTests.firmvalueFalse()
-    @test AMAalgTests.firmvalue3Leads2LagsFalse()
-    @test AMAalgTests.example7False()
-    @test AMAalgTests.oneEquationNoLeadFalse()
-    @test AMAalgTests.reliablePaperExmplFalse()
-    @test AMAalgTests.athanFalse()
-    @test AMAalgTests.habitmodFalse()
+    @test AndersonMooreAlgTests.firmvalueFalse()
+    @test AndersonMooreAlgTests.firmvalue3Leads2LagsFalse()
+    @test AndersonMooreAlgTests.example7False()
+    @test AndersonMooreAlgTests.oneEquationNoLeadFalse()
+    @test AndersonMooreAlgTests.reliablePaperExmplFalse()
+    @test AndersonMooreAlgTests.athanFalse()
+    @test AndersonMooreAlgTests.habitmodFalse()
 
-    @test AMAalgTests.firmvalueTrue()
-    @test AMAalgTests.firmvalue3Leads2LagsTrue()
-    @test AMAalgTests.example7True()
-    @test AMAalgTests.oneEquationNoLeadTrue()
-    @test AMAalgTests.reliablePaperExmplTrue()
-    @test AMAalgTests.athanTrue()
-    @test AMAalgTests.habitmodTrue()
+    @test AndersonMooreAlgTests.firmvalueTrue()
+    @test AndersonMooreAlgTests.firmvalue3Leads2LagsTrue()
+    @test AndersonMooreAlgTests.example7True()
+    @test AndersonMooreAlgTests.oneEquationNoLeadTrue()
+    @test AndersonMooreAlgTests.reliablePaperExmplTrue()
+    @test AndersonMooreAlgTests.athanTrue()
+    @test AndersonMooreAlgTests.habitmodTrue()
     print("Julia implementation ran for ");
 
     toc(); # end clock 
@@ -164,15 +164,15 @@ include(test_path)
     print("C/Fortran implementation ran for ");toc();
 end
     
-test_path = joinpath(dirname(@__FILE__), "defineAMAerrTestFuncs.jl")
+test_path = joinpath(dirname(@__FILE__), "defineErrTestFuncs.jl")
 include(test_path)  
-@testset "test AMAerr" begin
-    @test AMAerrTests.noErrors()
-    @test AMAerrTests.tooManyRoots()
-    @test AMAerrTests.tooFewRoots()
-    #@test AMAerrTests.tooManyExactShifts()
-    #@test AMAerrTests.tooManyNumericShifts()
-    @test AMAerrTests.spurious()
+@testset "test Err" begin
+    @test ErrTests.noErrors()
+    @test ErrTests.tooManyRoots()
+    @test ErrTests.tooFewRoots()
+    #@test ErrTests.tooManyExactShifts()
+    #@test ErrTests.tooManyNumericShifts()
+    @test ErrTests.spurious()
     
 end
     

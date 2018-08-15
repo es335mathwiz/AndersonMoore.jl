@@ -1,7 +1,7 @@
 module NumericShiftTests
 
-#include("../src/AMA.jl")
-using ..AMA, MAT
+#include("../src/AndersonMoore.jl")
+using ..AndersonMoore, MAT
 
 
 #tweaked= False

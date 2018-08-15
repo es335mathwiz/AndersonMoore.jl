@@ -3,7 +3,7 @@ default: all shared
 all: 
 	$(MAKE) -C bin
 
-LIB     = bin/libSPARSEAMA
+LIB     = bin/libAndersonMoore
 LINUX   = so
 OSX     = dylib
 WINDOWS = dll
@@ -20,4 +20,4 @@ shared: clean
 endif
 
 clean: 
-	rm -f libSPARSEAMA.*  
+	rm -f libAndersonMoore.*  

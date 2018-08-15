@@ -3,8 +3,8 @@ module BuildATests
 using MAT
 
 # test buildA!
-#include("../src/AMA.jl")
-using ..AMA
+#include("../src/AndersonMoore.jl")
+using ..AndersonMoore
 
 #tweaked= False
 # test buildA! firmvalue example
