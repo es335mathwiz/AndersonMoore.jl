@@ -11,10 +11,10 @@
 
 ## Installion
 
-To install AMA, use the package manager by typing:
+To install AndersonMoore, use the package manager by typing:
 
 ```julia
-Pkg.add("AMA")
+Pkg.add("AndersonMoore")
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ This algorithm solves linear rational expectations models. There is a fast and s
 Load the module:
 
 ```julia
-using AMA
+using AndersonMoore
 ```
 
 Declare the linear models to solve such as:
@@ -65,7 +65,7 @@ To execute the algorithm with julia:
 
 ```julia
 (b, rts, ia, nexact, nnumeric, lgroots, AMAcode) =
-     AMAalg(h, neq, nlag, nlead, condn, upperbnd)
+     AndersonMooreAlg(h, neq, nlag, nlead, condn, upperbnd)
 ```
 *Note* - the above returns the tuple (b, rts, ia, nexact, nnumeric, lgroots, AMAcode)
 <ul>
