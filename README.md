@@ -1,4 +1,4 @@
-# Anderson Moore
+# AMA - Anderson Moore Algorithm
 
 *Release verison*:
 
