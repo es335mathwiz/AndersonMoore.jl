@@ -1,7 +1,7 @@
 module GensysTests
 
-include(joinpath(dirname(@__FILE__), "..", "src", "AMA.jl"))
-using .AMA, MAT
+include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl"))
+using .AndersonMoore, MAT
 
 function example0()::Bool
 

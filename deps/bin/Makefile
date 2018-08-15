@@ -25,16 +25,16 @@ allObjs= $(allCObjs) $(allFortObjs)
 ifeq ($(shell uname), Linux)
 shared: clean $(allObjs)
 	$(FC) -shared $(allObjs) -llapack -lblas  \
-	 -o libSPARSEAMA.so
+	 -o libAndersonMoore.so
 else ifeq ($(shell uname), Darwin)
 shared: clean $(allObjs)
 	$(FC) -dynamiclib $(allObjs) -llapack -lblas \
-	 -o libSPARSEAMA.dylib
+	 -o libAndersonMoore.dylib
 else
 shared: clean $(allObjs)
 	link.exe --shared $(allObjs) -llapack -lblas \
-	 -o libSPARSEAMA.dll
+	 -o libAndersonMoore.dll
 endif
 
 clean: 
-	rm -f *.o libSPARSEAMA.*
+	rm -f *.o libAndersonMoore.*

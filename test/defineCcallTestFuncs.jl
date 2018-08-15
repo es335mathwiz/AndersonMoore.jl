@@ -1,8 +1,8 @@
 module CcallTests
 
-# include("../src/AMA.jl")
+# include("../src/AndersonMoore.jl")
 # test ccall
-using ..AMA, MAT
+using ..AndersonMoore, MAT
 
 # Original Tests
 function firmvalueFalse()::Bool

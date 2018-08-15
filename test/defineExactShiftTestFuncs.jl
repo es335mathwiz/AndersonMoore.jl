@@ -1,7 +1,7 @@
 module ExactShiftTests
 # test exactShift
 
-using ..AMA
+using ..AndersonMoore
 
 # test exactShift firmvalue example
 function firmvalue()::Bool

@@ -3,7 +3,7 @@ module AugmentQTests
 using MAT
 
 # test augmentQ 
-using ..AMA
+using ..AndersonMoore
 
 # test augmentQ! firmvalue example
 function firmvalue()::Bool

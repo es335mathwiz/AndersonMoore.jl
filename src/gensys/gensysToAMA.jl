@@ -94,14 +94,14 @@
             println("gensysToAMA:running ama")
             println("gensysToAMA:converting gensys inputs to ama format")
             (theHM, theH0, theHP) = convertFromGensysIn(g0, g1, pi)
-            condn  = 1.e-10     #AMAalg uses this in zero tests
+            condn  = 1.e-10     #AndersonMooreAlg uses this in zero tests
             uprbnd = 1 + 1.e-6  #allow unit roots
             # theH = [theHM, theH0, theHP]
             theH = hcat(theHM, theH0, theHP)
             neq = size(theHM, 1)
             println("gensysToAMA:running ama")
             (bb, rts, ia, nexact, nnumeric, lgroots, aimcode) =
-                AMAalg(theH, neq, 1, 1, condn, uprbnd)
+                AndersonMooreAlg(theH, neq, 1, 1, condn, uprbnd)
             eu = setEu(aimcode)
             
             if aimcode == 1
@@ -161,7 +161,7 @@
             convertToStart = cputime
             (theHM, theH0, theHP) = convertFromGensysIn(g0, g1, pi)
             theH = (theHM, theH0, theHP)
-            condn  = 1.e-10 #AMAalg uses this in zero tests
+            condn  = 1.e-10 #AndersonMooreAlg uses this in zero tests
             uprbnd = 1 + 1.e-6 #allow unit roots
             neq = size(theHM, 1)
             convertToDone =cputime - convertToStart

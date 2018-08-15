@@ -2,7 +2,7 @@ module EigenSysTests
 using MAT
 
 # test eigenSys 
-using ..AMA
+using ..AndersonMoore
 
 #tweaked= False
 # test eigenSys! firmvalue example

@@ -1,8 +1,8 @@
 module ReducedFormTests
 
-# include("../src/AMA.jl")
+# include("../src/AndersonMoore.jl")
 # test reducedForm
-using ..AMA, MAT
+using ..AndersonMoore, MAT
 #tweaked= True
 # test reducedForm firmvalue example
 function firmvalueTrue()::Bool

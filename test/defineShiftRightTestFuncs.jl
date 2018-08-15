@@ -1,6 +1,6 @@
 module ShiftRightTests
 
-using ..AMA
+using ..AndersonMoore
 
 # test shiftRight! firmvalue example
 function firmvalue()::Bool
