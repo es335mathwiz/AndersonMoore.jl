@@ -187,7 +187,6 @@ include(test_path)
     #@test GensysTests.example6()
     @test GensysTests.example7()
 end
-    
 
 end #outer
 
