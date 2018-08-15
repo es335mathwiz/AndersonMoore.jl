@@ -5,8 +5,7 @@ using .AMA, MAT
 
 function example0()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir",
-                            "tmp", "gensysToAMA", "matlab", "exampl0.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl0.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -26,8 +25,7 @@ end # example1
 
 function example1()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir",
-                            "tmp", "gensysToAMA", "matlab", "exampl1.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl1.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -47,8 +45,7 @@ end # example1
 
 function example2()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir",
-                            "tmp", "gensysToAMA", "matlab", "exampl2.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl2.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -68,8 +65,7 @@ end # example2
 
 function example3()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir",
-                            "tmp", "gensysToAMA", "matlab", "exampl3.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl3.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -89,8 +85,7 @@ end # example3
 
 function example4()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir",
-                            "tmp", "gensysToAMA", "matlab", "exampl4.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl4.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -110,8 +105,7 @@ end # example4
 
 function example5()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir",
-                            "tmp", "gensysToAMA", "matlab", "exampl5.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl5.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -131,8 +125,7 @@ end # example5
 
 function example6()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir",
-                            "tmp", "gensysToAMA", "matlab", "exampl6.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl6.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -152,8 +145,7 @@ end # example6
 
 function example7()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir",
-                            "tmp", "gensysToAMA", "matlab", "exampl7.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl7.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")

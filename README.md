@@ -4,10 +4,10 @@
 
 *Build status*:
 
-[![Build Status](https://travis-ci.org/es335mathwiz/AMA.jl.svg?branch=develop)](https://travis-ci.org/es335mathwiz/AMA.jl)
-[![Build status](https://ci.appveyor.com/api/projects/status/kh7w0y6d1652t0by/branch/develop?svg=true)](https://ci.appveyor.com/project/GaryAnderson/ama-jl/branch/develop)
+[![Build Status](https://travis-ci.org/es335mathwiz/AMA.jl.svg?branch=master)](https://travis-ci.org/es335mathwiz/AMA.jl)
+[![Build status](https://ci.appveyor.com/api/projects/status/kh7w0y6d1652t0by/branch/master?svg=true)](https://ci.appveyor.com/project/GaryAnderson/ama-jl/branch/master)
 [![Coverage Status](https://coveralls.io/repos/github/es335mathwiz/AMA.jl/badge.svg)](https://coveralls.io/github/es335mathwiz/AMA.jl)
-[![codecov.io](http://codecov.io/github/es335mathwiz/AMA.jl/coverage.svg?branch=develop)](http://codecov.io/github/es335mathwiz/AMA.jl?branch=develop)
+[![codecov.io](http://codecov.io/github/es335mathwiz/AMA.jl/coverage.svg?branch=master)](http://codecov.io/github/es335mathwiz/AMA.jl?branch=master)
 
 ## Installion
 
