@@ -5,27 +5,47 @@ using .AndersonMoore, MAT
 
 function example0()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl0.mat"))
     #inputs
-    g0 = read(file, "g0")
-    g1 = read(file, "g1")
-    cc = read(file, "cc")
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example0.mat"))
+    g0  = read(file, "g0")
+    g1  = read(file, "g1")
+    cc  = read(file, "cc")
     psi = read(file, "psi")
-    pi = read(file, "pi")
+    pi  = read(file, "pi")
     div = read(file, "div")
-                   
+    close(file)
+
+    #outputs
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example0-result.mat"))
+    G1MAT     = read(file, "G1")
+    CCMAT     = read(file, "CC")
+    impactMAT = read(file, "impact")
+    fmatMAT   = read(file, "fmat")
+    fwtMAT    = read(file, "fwt")
+    ywtMAT    = read(file, "ywt")
+    gevMAT    = read(file, "gev")
+    euMAT     = read(file, "eu")
     close(file)
 
 G1, CC, impact, fmat, fwt, ywt, gev, eu =
         gensysToAMA(g0, g1, cc, psi, pi, div, "ama")
-        
-    return true
+
+
+    
+    isapprox(G1, G1MAT)&&
+    isapprox(CC, CCMAT)&&
+    isapprox(impact, impactMAT)&&
+    isapprox(fmat, fmatMAT)&&
+    isapprox(fwt, fwtMAT)&&
+    isapprox(ywt, ywtMAT)&&
+    gev == nothing 
+    isapprox(eu, euMAT)
 
 end # example1
 
 function example1()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl1.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example1.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -36,16 +56,36 @@ function example1()::Bool
                    
     close(file)
 
+    #outputs
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example1-result.mat"))
+    G1MAT     = read(file, "G1")
+    CCMAT     = read(file, "CC")
+    impactMAT = read(file, "impact")
+    fmatMAT   = read(file, "fmat")
+    fwtMAT    = read(file, "fwt")
+    ywtMAT    = read(file, "ywt")
+    gevMAT    = read(file, "gev")
+    euMAT     = read(file, "eu")
+    close(file)
+
+
 G1, CC, impact, fmat, fwt, ywt, gev, eu =
         gensysToAMA(g0, g1, cc, psi, pi, div, "ama")
-        
-    return true
+
+    isapprox(G1, G1MAT)&&
+    isapprox(CC, CCMAT)&&
+    isapprox(impact, impactMAT)&&
+    isapprox(fmat, fmatMAT)&&
+    isapprox(fwt, fwtMAT)&&
+    isapprox(ywt, ywtMAT)&&
+    gev == nothing &&
+    isapprox(eu, euMAT)
 
 end # example1
 
 function example2()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl2.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example2.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -56,16 +96,37 @@ function example2()::Bool
                    
     close(file)
 
+    #outputs
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example2-result.mat"))
+    G1MAT     = read(file, "G1")
+    CCMAT     = read(file, "CC")
+    impactMAT = read(file, "impact")
+    fmatMAT   = read(file, "fmat")
+    fwtMAT    = read(file, "fwt")
+    ywtMAT    = read(file, "ywt")
+    gevMAT    = read(file, "gev")
+    euMAT     = read(file, "eu")
+    close(file)
+
+
 G1, CC, impact, fmat, fwt, ywt, gev, eu =
         gensysToAMA(g0, g1, cc, psi, pi, div, "ama")
         
-    return true
+    
+    isapprox(G1, G1MAT)&&
+    isapprox(CC, CCMAT)&&
+    isapprox(impact, impactMAT)&&
+    isapprox(fmat, fmatMAT)&&
+    isapprox(fwt, fwtMAT)&&
+    isapprox(ywt, ywtMAT)&&
+    gev == nothing &&
+    isapprox(eu, euMAT)
 
 end # example2
 
 function example3()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl3.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example3.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -76,16 +137,37 @@ function example3()::Bool
                    
     close(file)
 
+    #outputs
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example3-result.mat"))
+    G1MAT     = read(file, "G1")
+    CCMAT     = read(file, "CC")
+    impactMAT = read(file, "impact")
+    fmatMAT   = read(file, "fmat")
+    fwtMAT    = read(file, "fwt")
+    ywtMAT    = read(file, "ywt")
+    gevMAT    = read(file, "gev")
+    euMAT     = read(file, "eu")
+    close(file)
+
+
 G1, CC, impact, fmat, fwt, ywt, gev, eu =
         gensysToAMA(g0, g1, cc, psi, pi, div, "ama")
         
-    return true
+    
+    isapprox(G1, G1MAT)&&
+    isapprox(CC, CCMAT)&&
+    isapprox(impact, impactMAT)&&
+    isapprox(fmat, fmatMAT)&&
+    isapprox(fwt, fwtMAT)&&
+    isapprox(ywt, ywtMAT)&&
+    gev == nothing &&
+    isapprox(eu, euMAT)
 
 end # example3
 
 function example4()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl4.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example4.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -96,16 +178,37 @@ function example4()::Bool
                    
     close(file)
 
+    #outputs
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example4-result.mat"))
+    G1MAT     = read(file, "G1")
+    CCMAT     = read(file, "CC")
+    impactMAT = read(file, "impact")
+    fmatMAT   = read(file, "fmat")
+    fwtMAT    = read(file, "fwt")
+    ywtMAT    = read(file, "ywt")
+    gevMAT    = read(file, "gev")
+    euMAT     = read(file, "eu")
+    close(file)
+
+
 G1, CC, impact, fmat, fwt, ywt, gev, eu =
         gensysToAMA(g0, g1, cc, psi, pi, div, "ama")
         
-    return true
+    
+    isapprox(G1, G1MAT)&&
+    isapprox(CC, CCMAT)&&
+    isapprox(impact, impactMAT)&&
+    isapprox(fmat, fmatMAT)&&
+    isapprox(fwt, fwtMAT)&&
+    isapprox(ywt, ywtMAT)&&
+    gev == nothing &&
+    isapprox(eu, euMAT)
 
 end # example4
 
 function example5()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl5.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example5.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -116,16 +219,37 @@ function example5()::Bool
                    
     close(file)
 
+    #outputs
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example5-result.mat"))
+    G1MAT     = read(file, "G1")
+    CCMAT     = read(file, "CC")
+    impactMAT = read(file, "impact")
+    fmatMAT   = read(file, "fmat")
+    fwtMAT    = read(file, "fwt")
+    ywtMAT    = read(file, "ywt")
+    gevMAT    = read(file, "gev")
+    euMAT     = read(file, "eu")
+    close(file)
+
+
 G1, CC, impact, fmat, fwt, ywt, gev, eu =
         gensysToAMA(g0, g1, cc, psi, pi, div, "ama")
         
-    return true
+    
+    isapprox(G1, G1MAT)&&
+    isapprox(CC, CCMAT)&&
+    isapprox(impact, impactMAT)&&
+    isapprox(fmat, fmatMAT)&&
+    isapprox(fwt, fwtMAT)&&
+    isapprox(ywt, ywtMAT)&&
+    gev == nothing &&
+    isapprox(eu, euMAT)
 
 end # example5
 
 function example6()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl6.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example6.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -136,16 +260,37 @@ function example6()::Bool
                    
     close(file)
 
+    #outputs
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example6-result.mat"))
+    G1MAT     = read(file, "G1")
+    CCMAT     = read(file, "CC")
+    impactMAT = read(file, "impact")
+    fmatMAT   = read(file, "fmat")
+    fwtMAT    = read(file, "fwt")
+    ywtMAT    = read(file, "ywt")
+    gevMAT    = read(file, "gev")
+    euMAT     = read(file, "eu")
+    close(file)
+
+
 G1, CC, impact, fmat, fwt, ywt, gev, eu =
         gensysToAMA(g0, g1, cc, psi, pi, div, "ama")
         
-    return true
+    
+    isapprox(G1, G1MAT)&&
+    isapprox(CC, CCMAT)&&
+    isapprox(impact, impactMAT)&&
+    isapprox(fmat, fmatMAT)&&
+    isapprox(fwt, fwtMAT)&&
+    isapprox(ywt, ywtMAT)&&
+    gev == nothing &&
+    isapprox(eu, euMAT)
 
 end # example6
 
 function example7()::Bool
 
-    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "exampl7.mat"))
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example7.mat"))
     #inputs
     g0 = read(file, "g0")
     g1 = read(file, "g1")
@@ -156,10 +301,31 @@ function example7()::Bool
                    
     close(file)
 
+    #outputs
+    file = matopen(joinpath(dirname(@__FILE__), "matDir", "gensysToAMA", "example7-result.mat"))
+    G1MAT     = read(file, "G1")
+    CCMAT     = read(file, "CC")
+    impactMAT = read(file, "impact")
+    fmatMAT   = read(file, "fmat")
+    fwtMAT    = read(file, "fwt")
+    ywtMAT    = read(file, "ywt")
+    gevMAT    = read(file, "gev")
+    euMAT     = read(file, "eu")
+    close(file)
+
+
 G1, CC, impact, fmat, fwt, ywt, gev, eu =
         gensysToAMA(g0, g1, cc, psi, pi, div, "ama")
         
-    return true
+    
+    isapprox(G1, G1MAT)&&
+    isapprox(CC, CCMAT)&&
+    isapprox(impact, impactMAT)&&
+    isapprox(fmat, fmatMAT)&&
+    isapprox(fwt, fwtMAT)&&
+    isapprox(ywt, ywtMAT)&&
+    gev == nothing &&
+    isapprox(eu, euMAT)
 
 end # example7
     
