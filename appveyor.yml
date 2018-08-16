@@ -20,6 +20,7 @@ notifications:
 install:
   #- call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"
   - cinst make
+  - cinst cygwin
   - cinst mingw	
   # Download most recent Julia Windows binary
   - ps: (new-object net.webclient).DownloadFile(
@@ -36,15 +37,4 @@ build_script:
       Pkg.clone(pwd(), \"AndersonMoore\"); Pkg.build(\"AndersonMoore\")"
  
 test_script:
-
-
-
-
-
-
-
-
-
-
-
   - C:\projects\julia\bin\julia --check-bounds=yes -e "Pkg.test(\"AndersonMoore\")"
