@@ -19,9 +19,8 @@ notifications:
 
 install:
   #- call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"
-  #- 'C:\cygwin\setup-x86.exe -qnNdO -R C:/cygwin -s http://cygwin.mirror.constant.com -l C:/cygwin/var/cache/setup -P autoconf -P automake -P bison -P gcc-core -P gcc-g++ -P mingw-runtime -P mingw-binutils -P mingw-gcc-core -P mingw-gcc-g++ -P mingw-pthreads -P mingw-w32api -P libtool -P make -P python -P gettext-devel -P gettext -P intltool -P libiconv -P pkg-config -P git -P wget -P curl'
-  - appveyor DownloadFile https://cygwin.com/setup-x86_64.exe -FileName C:\projects\cygwin-setup-x86_64.exe
-  - C:\projects\cygwin-setup-x86_64.exe -q -g -P make,mingw64-i686-gcc-core,mingw64-x86_64-gcc-core
+  #- 'C:\cygwin\setup-x86.exe -qnNdO -R C:/cygwin -s http://cygwin.mirror.constant.com -l C:/cygwin/var/cache/setup -P autoconf -P automake -P bison -P gcc-core -P gcc-g++ -P mingw-runtime -P mingw-binutils -P mingw-gcc-core -P mingw-gcc-g++ -P mingw-pthreads -P mingw-w32api -P libtool -P make -P python -P gettext-devel -P gettext -P intltool -P libiconv -P pkg-config -P git -P wget -P curl'  
+  - set PATH=%PATH:C:\MinGW\bin;=%
   #- cinst make
   #- cinst cygwin
   #- cinst mingw	
