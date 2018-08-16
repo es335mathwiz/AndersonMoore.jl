@@ -1,14 +1,14 @@
 default: shared
 
-ifeq ($(shell uname), $(filter $(shell uname), Linux Darwin))
-FC= gfortran
+#ifeq ($(shell uname), $(filter $(shell uname), Linux Darwin))
+#FC= gfortran
 #FFLAGS= -fPIC -c -O2
-CC= gcc
+#CC= gcc
 #CFLAGS= -fPIC -c -O2 
-else 
+#else 
 FC= gcc
 CC= gcc
-endif
+#endif
 FFLAGS= -fPIC -c -O2
 CFLAGS= -fPIC -c -O2
 #linuxLibs = lapack_linux/liblapack.a lapack_linux/librefblas.a
