@@ -36,4 +36,15 @@ build_script:
       Pkg.clone(pwd(), \"AndersonMoore\"); Pkg.build(\"AndersonMoore\")"
  
 test_script:
+
+
+
+
+
+
+
+
+
+
+
   - C:\projects\julia\bin\julia --check-bounds=yes -e "Pkg.test(\"AndersonMoore\")"
