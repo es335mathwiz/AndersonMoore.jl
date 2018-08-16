@@ -6,8 +6,8 @@ FC= gfortran
 CC= gcc
 #CFLAGS= -fPIC -c -O2 
 else 
-FC= cl.exe
-CC= cl.exe
+FC= gcc
+CC= gcc
 endif
 FFLAGS= -fPIC -c -O2
 CFLAGS= -fPIC -c -O2
@@ -32,7 +32,7 @@ shared: clean $(allObjs)
 	 -o libAndersonMoore.dylib
 else
 shared: clean $(allObjs)
-	link.exe --shared $(allObjs) -llapack -lblas \
+	gcc --shared $(allObjs) -llapack -lblas \
 	 -o libAndersonMoore.dll
 endif
 
