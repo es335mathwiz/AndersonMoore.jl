@@ -7,7 +7,7 @@
 [![Build Status](https://travis-ci.org/es335mathwiz/AndersonMoore.jl.svg?branch=develop)](https://travis-ci.org/es335mathwiz/AndersonMoore.jl)
 [![Build status](https://ci.appveyor.com/api/projects/status/github/gtunell/AndersonMoore.jl?branch=develop&svg=true)](https://ci.appveyor.com/project/gtunell/andersonmoore-jl/branch/develop)
 [![Coverage Status](https://coveralls.io/repos/github/es335mathwiz/AMA.jl/badge.svg?branch=develop)](https://coveralls.io/github/es335mathwiz/AMA.jl?branch=develop)
-[![codecov.io](https://codecov.io/github/es335mathwiz/AndersonMoore.jl?branch=develop)](https://codecov.io/github/es335mathwiz/AndersonMoore.jl?branch=develop)
+[![codecov.io](https://codecov.io/github/es335mathwiz/AndersonMoore.jl/coverage.svg?branch=develop)](https://codecov.io/github/es335mathwiz/AndersonMoore.jl?branch=develop)
 
 ## Installion
 
