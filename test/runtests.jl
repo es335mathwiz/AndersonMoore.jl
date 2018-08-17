@@ -1,7 +1,9 @@
-path = joinpath(dirname(@__FILE__), "..", "deps")
-cd("$path")
+start  = pwd()
+destination = joinpath(dirname(@__FILE__), "..", "deps")
+cd("$destination")
 run(`cmake .`)
 run(`make`)
+cd(start)
 
 using Base.Test
 

@@ -20,10 +20,8 @@ notifications:
 image: Visual Studio 2017
 
 install: 
+  - cinst mingw	
   - set PATH=%PATH:C:\MinGW\bin;=%
-  - cinst make
-  #- cinst cygwin
-  #- cinst mingw	
   # Download most recent Julia Windows binary
   - ps: (new-object net.webclient).DownloadFile(
         $("http://s3.amazonaws.com/"+$env:JULIAVERSION),
