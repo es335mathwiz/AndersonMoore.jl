@@ -1,5 +1,6 @@
 path = joinpath(dirname(@__FILE__), "..", "deps")
 cd("$path")
+run(`cmake .`)
 run(`make`)
 
 using Base.Test
