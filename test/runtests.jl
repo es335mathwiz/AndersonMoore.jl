@@ -1,7 +1,7 @@
 start  = pwd()
 destination = joinpath(dirname(@__FILE__), "..", "deps")
 cd("$destination")
-run(`cmake .`)
+run(`cmake -G "MinGW Makefiles" .`)
 run(`make`)
 cd(start)
 
