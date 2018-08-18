@@ -1,7 +1,11 @@
 start  = pwd()
 destination = joinpath(dirname(@__FILE__), "..", "deps")
 cd("$destination")
-run(`cmake -G "MinGW Makefiles" .`)
+if is_windows()
+   run(`cmake -G "MinGW Makefiles" .`)
+else
+   run(`cmake .`)
+   end
 run(`make`)
 cd(start)
 
