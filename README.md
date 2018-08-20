@@ -97,4 +97,10 @@ To execute the algorithm with C/Fortran:
 
 For more information and an indepth analysis of the algorithm, please read the [full paper](https://www.federalreserve.gov/pubs/feds/2010/201013/201013pap.pdf) written by [Gary S. Anderson](https://github.com/es335mathwiz).
 
+The authors would appreciate acknowledgement by citation of any of the following papers:
+Anderson, G. and Moore, G. "A Linear Algebraic Procedure For Solving Linear Perfect Foresight Models." Economics Letters, 17, 1985.
+Anderson, G. "Solving Linear Rational Expectations Models: A Horse Race." Computational Economics, 2008, vol. 31, issue 2, pp. 95-113
+Anderson, G. "A Reliable and Computationally Efficient Algorithm for Imposing the Saddle Point Property in Dynamic Models." Journal of Economic Dynamics and Control, 2010, vol 34, issue 3, pp. 472-489.
+
+
 Author: [Gregory Tunell](https://github.com/gtunell) e-mail available at <gregtunell@gmail.com>.
