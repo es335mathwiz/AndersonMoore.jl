@@ -5,7 +5,7 @@ end
 Pkg.add("MAT")
 
 if is_windows()
-    run(`cmake -G "MingGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" .`)
+    run(`cmake -G "MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" .`)
     #run(`cmake -DCMAKE_IGNORE_PATH="C:/Program Files/Git/usr/bin" -G "MinGW Makefiles" .`)
 else
     run(`cmake .`)
