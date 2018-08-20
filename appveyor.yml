@@ -30,6 +30,7 @@ install:
  
 before_build:
   - set PATH=C:\MinGW\bin;%PATH%
+  - FC = C:\MinGW\bin\gfortran
 
 build_script:
 # Need to convert from shallow to complete for Pkg.clone to work
