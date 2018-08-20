@@ -1,5 +1,5 @@
 if is_apple()
-    run(`brew tap homebrew/science`)
+#    run(`brew tap homebrew/science`)
     run(`brew install hdf5`)
     Pkg.add("HDF5")
 end
