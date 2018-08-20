@@ -19,7 +19,7 @@ Pkg.add("AndersonMoore")
 
 ## Usage
 
-This algorithm solves linear rational expectations models. There is a fast and slightly faster use for this package outlined below. The former calls a julia language implementation and the latter calls a C/Fortran implementation. To begin,
+This algorithm solves linear rational expectations models. There is a fast and slightly faster method to execute the algorithm which is outlined below. AndersonMooreAlg calls a julia language implementation and the callSparseAim executes a C/Fortran implementation. Lastly, gensysToAMA is a function for users who are accustomed to gensys style inputs and outputs but wish to use AMA. It can be shown that AMA is faster than gensys. To begin,
 
 Load the module:
 
@@ -92,6 +92,19 @@ To execute the algorithm with C/Fortran:
   <li>  q         -  Asymptotic constraints.<br />                    </li>
   <li>	AMAcode   -  Return code.                                     </li>
 </ul>
+
+For those accustomed to gensys:
+
+```julia
+(G1, CC, impact, fmat, fwt, ywt, gev, eu) = 
+     function gensysToAMA(g0, g1, cc, psi, pi, div, varargin = "" ) =
+```
+
+*Note* - the above returns the tuple (G1, CC, impact, fmat, fwt, ywt, gev, eu)<br />
+<ul>
+     <li></li> 
+</ul>
+     
 
 ## More
 
