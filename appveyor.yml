@@ -1,4 +1,6 @@
 environment:
+  MINGW_DIR: C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin
+
   matrix:
   - JULIAVERSION: "julialang/bin/winnt/x86/0.6/julia-0.6-latest-win32.exe"
     COMPILER: C:\MinGW
@@ -19,6 +21,9 @@ notifications:
     on_build_failure: false
     on_build_status_changed: false
 
+init:
+  - set PATH=%MINGW_DIR%;%PATH%
+
 install: 
   # Download most recent Julia Windows binary
   - ps: (new-object net.webclient).DownloadFile(
@@ -28,13 +33,9 @@ install:
   # Run installer silently, output to C:\projects\julia
   - C:\projects\julia-binary.exe /S /D=C:\projects\julia
  
-before_build:
-  - set PATH=C:\MinGW\bin;%PATH%
-  - FC = C:\MinGW\bin\gfortran
-
 build_script:
 # Need to convert from shallow to complete for Pkg.clone to work
-#- IF EXIST .git\shallow (git fetch --unshallow)
+  - IF EXIST .git\shallow (git fetch --unshallow)
   - C:\projects\julia\bin\julia -e "versioninfo();
       Pkg.clone(pwd(), \"AndersonMoore\"); Pkg.build(\"AndersonMoore\")"
  
