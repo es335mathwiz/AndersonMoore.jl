@@ -4,14 +4,16 @@ enable_language(Fortran)
 
 if (WIN32)
      find_package(LAPACK95 REQUIRED)
+     find_package(BLAS95 REQUIRED)
+
+     set(LIBS ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
 else ()
+     find_package(BLAS REQUIRED)
      find_package(LAPACK REQUIRED)
+
+     set(LIBS ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
 endif (WIN32)
 
-find_package(BLAS REQUIRED)
-#find_package(LAPACK REQUIRED)
-
-set(LIBS ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
 
 include_directories(include)
 
