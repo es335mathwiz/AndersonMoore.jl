@@ -29,8 +29,9 @@ install:
   - C:\projects\julia-binary.exe /S /D=C:\projects\julia
  
 before_build:
-  - set PATH=%PATH:C:\Program Files (x86)\Git\bin;=%
+  #- set PATH=%PATH:C:\Program Files (x86)\Git\bin;=%
   - set PATH=C:\MinGW\bin;%PATH%
+  - set PATH=%PATH:C:\Program Files\Git\usr\bin;=%
 
 build_script:
 # Need to convert from shallow to complete for Pkg.clone to work
