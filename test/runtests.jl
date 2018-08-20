@@ -2,7 +2,7 @@ start  = pwd()
 destination = joinpath(dirname(@__FILE__), "..", "deps")
 cd("$destination")
 if is_windows()
-   run(`cmake -G "MinGW Makefiles" .`)
+   run(`cmake -G "MSYS Makefiles" .`)
 else
    run(`cmake .`)
 end
