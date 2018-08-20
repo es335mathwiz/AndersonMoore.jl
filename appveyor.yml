@@ -24,6 +24,11 @@ notifications:
 init:
   - set PATH=%MINGW_DIR%;%PATH%
 
+install:
+  # Lapack95
+  - cd $APPVEYOR_BUILD_FOLDER/LAPACK95
+  - make -s double -C SRC
+
 install: 
   # Download most recent Julia Windows binary
   - ps: (new-object net.webclient).DownloadFile(
