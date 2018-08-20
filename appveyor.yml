@@ -29,8 +29,6 @@ install:
   - C:\projects\julia-binary.exe /S /D=C:\projects\julia
  
 before_build:
-  - set PATH=%PATH:C:\Program Files (x86)\Git\bin;=%
-  - set PATH=%PATH:C:\Program Files\Git\usr\bin;=%
   - SET PATH=%COMPILER%\bin;%PATH%
   - set PATH=C:\MinGW\bin;%PATH%
 
