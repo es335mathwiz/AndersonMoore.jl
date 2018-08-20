@@ -19,7 +19,7 @@ Pkg.add("AndersonMoore")
 
 ## Usage
 
-This algorithm solves linear rational expectations models. There is a fast and slightly faster method to execute the algorithm which is outlined below. AndersonMooreAlg calls a julia language implementation and the callSparseAim executes a C/Fortran implementation. Lastly, gensysToAMA is a function for users who are accustomed to gensys style inputs and outputs but wish to use AMA. It can be shown that AMA is faster than gensys. To begin,
+This algorithm solves linear rational expectations models. There is a fast and slightly faster method to execute the algorithm which is outlined below. AndersonMooreAlg calls a julia language implementation and callSparseAim executes a C/Fortran implementation. Lastly, gensysToAMA is a function for users who are accustomed to gensys style inputs and outputs but wish to use AMA. It can be shown that AMA is faster than gensys. To begin,
 
 Load the module:
 
@@ -61,7 +61,7 @@ Finally, give an inclusive upper bound for modulus of roots allowed in reduced f
 upperbnd = 1 + condn
 ```
 
-To execute the algorithm with julia: 
+###To execute the algorithm with julia: 
 
 ```julia
 (b, rts, ia, nexact, nnumeric, lgroots, AMAcode) =
@@ -78,7 +78,7 @@ To execute the algorithm with julia:
   <li>  AMAcode   -  Return code.<br />                                          </li>
 </ul>
 
-To execute the algorithm with C/Fortran:
+###To execute the algorithm with C/Fortran:
 
 ```julia
 (h, b, q, AMAcode) = 
@@ -93,7 +93,7 @@ To execute the algorithm with C/Fortran:
   <li>	AMAcode   -  Return code.                                     </li>
 </ul>
 
-For those accustomed to gensys:
+###For those accustomed to gensys:
 
 ```julia
 (G1, CC, impact, fmat, fwt, ywt, gev, eu) = 
