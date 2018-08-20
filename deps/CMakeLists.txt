@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8.9)
 project(AndersonMoore)
+set(CMAKE_Fortran_COMPILER C:\MinGW\bin)
 enable_language(Fortran)
 
 find_package(BLAS REQUIRED)
