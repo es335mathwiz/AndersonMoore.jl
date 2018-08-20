@@ -29,7 +29,7 @@ install:
   - cd $APPVEYOR_BUILD_FOLDER/LAPACK95
   - make -s double -C SRC
 
-install: 
+#install: 
   # Download most recent Julia Windows binary
   - ps: (new-object net.webclient).DownloadFile(
         $("http://s3.amazonaws.com/"+$env:JULIAVERSION),
