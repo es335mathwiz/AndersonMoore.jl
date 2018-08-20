@@ -1,11 +1,9 @@
-if is_linux() 
-   Pkg.add("MAT")
-elseif is_apple()
+if is_apple()
    run(`brew tap homebrew/science`)
    run(`brew install hdf5`)
    Pkg.add("HDF5")
-   Pkg.add("MAT")';
 end
+Pkg.add("MAT")
 
 if is_windows()
    run(`cmake -G "MinGW Makefiles" .`)
