@@ -61,7 +61,7 @@ Finally, give an inclusive upper bound for modulus of roots allowed in reduced f
 upperbnd = 1 + condn
 ```
 
-### To execute the algorithm with julia: 
+#### To execute the algorithm with julia: 
 
 ```julia
 (b, rts, ia, nexact, nnumeric, lgroots, AMAcode) =
@@ -78,7 +78,7 @@ upperbnd = 1 + condn
   <li>  AMAcode   -  Return code.<br />                                          </li>
 </ul>
 
-### To execute the algorithm with C/Fortran:
+#### To execute the algorithm with C/Fortran:
 
 ```julia
 (h, b, q, AMAcode) = 
@@ -93,7 +93,7 @@ upperbnd = 1 + condn
   <li>	AMAcode   -  Return code.                                     </li>
 </ul>
 
-### For those accustomed to gensys:
+#### For those accustomed to gensys:
 
 ```julia
 (G1, CC, impact, fmat, fwt, ywt, gev, eu) = 
