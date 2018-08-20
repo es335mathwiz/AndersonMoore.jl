@@ -97,12 +97,19 @@ upperbnd = 1 + condn
 
 ```julia
 (G1, CC, impact, fmat, fwt, ywt, gev, eu) = 
-     function gensysToAMA(g0, g1, cc, psi, pi, div, varargin = "" ) =
+     gensysToAMA(g0, g1, cc, psi, pi, div, varargin = "" ) =
 ```
 
 *Note* - the above returns the tuple (G1, CC, impact, fmat, fwt, ywt, gev, eu)<br />
 <ul>
-     <li></li> 
+     <li> G1 - </li>
+     <li> CC - </li>
+     <li> impact - </li>
+     <li> fmat - </li>
+     <li> fwt - </li>
+     <li> ywt - </li>
+     <li> gev - </li>
+     <li> eu - </li>
 </ul>
      
 
