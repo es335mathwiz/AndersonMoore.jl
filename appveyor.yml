@@ -29,7 +29,6 @@ install:
   - C:\projects\julia-binary.exe /S /D=C:\projects\julia
  
 before_build:
-  - SET PATH=%COMPILER%\bin;%PATH%
   - set PATH=C:\MinGW\bin;%PATH%
 
 build_script:
