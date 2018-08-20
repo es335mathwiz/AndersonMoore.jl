@@ -1,14 +1,3 @@
-#start  = pwd()
-#destination = joinpath(dirname(@__FILE__), "..", "deps")
-#cd("$destination")
-#if is_windows()
-#   run(`cmake -G "MinGW Makefiles" .`)
-#else
-#   run(`cmake .`)
-#end
-#run(`make`)
-#cd(start)
-
 using Base.Test
 
 const AndersonMoore_path = joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl")
