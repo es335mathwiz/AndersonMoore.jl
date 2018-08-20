@@ -49,10 +49,10 @@ before_install:
 script:
 - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 #- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then 
-     julia -e 'Pkg.add("MAT")'; 
-  elif [ "${TRAVIS_OS_NAME}" = "osx" ]; then
-     brew tap homebrew/science; brew install hdf5; julia -e 'Pkg.add("HDF5"); Pkg.add("MAT")';
-  fi
+#     julia -e 'Pkg.add("MAT")'; 
+#  elif [ "${TRAVIS_OS_NAME}" = "osx" ]; then
+#     brew tap homebrew/science; brew install hdf5; julia -e 'Pkg.add("HDF5"); Pkg.add("MAT")';
+#  fi
 - julia -e 'Pkg.add("MAT"); Pkg.clone(pwd()); Pkg.build("AndersonMoore"); Pkg.test("AndersonMoore"; coverage=true)'
 
 after_success:
