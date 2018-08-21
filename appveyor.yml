@@ -15,7 +15,9 @@ branches:
   only:
     - develop
     - /release-.*/
- 
+
+image: cygwin
+
 notifications:
   - provider: Email
     on_build_success: false
