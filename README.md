@@ -100,17 +100,7 @@ upperbnd = 1 + condn
      gensysToAMA(g0, g1, cc, psi, pi, div, varargin = "" ) =
 ```
 
-*Note* - the above returns the tuple (G1, CC, impact, fmat, fwt, ywt, gev, eu)<br />
-<ul>
-     <li> G1 - </li>
-     <li> CC - </li>
-     <li> impact - </li>
-     <li> fmat - </li>
-     <li> fwt - </li>
-     <li> ywt - </li>
-     <li> gev - </li>
-     <li> eu - </li>
-</ul>
+To run AMA, subsitute the gensys style inputs into the above command with the addition of string "ama" for the argument varargin.
      
 
 ## More
