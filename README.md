@@ -100,7 +100,7 @@ upperbnd = 1 + condn
      gensysToAMA(g0, g1, cc, psi, pi, div, varargin = "" ) =
 ```
 
-To run AMA, subsitute the gensys style inputs into the above command with the addition of string "ama" for the argument varargin.
+To run AMA, subsitute the gensys style inputs into the above command but substitute "ama" for the argument varargin.
      
 
 ## More
