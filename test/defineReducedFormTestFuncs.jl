@@ -1,8 +1,9 @@
 module ReducedFormTests
 
-# include("../src/AndersonMoore.jl")
+include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl"))
 # test reducedForm
-using ..AndersonMoore, MAT
+using .AndersonMoore, MAT
+
 #tweaked= True
 # test reducedForm firmvalue example
 function firmvalueTrue()::Bool

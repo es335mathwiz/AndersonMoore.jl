@@ -1,8 +1,8 @@
 module AndersonMooreAlgTests
 
-# include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl")
+include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl"))
 # test AndersonMooreAlg
-using ..AndersonMoore, MAT
+using .AndersonMoore, MAT
     
 #tweaked= False
 # test AndersonMooreAlg firmvalueFalse example
@@ -44,7 +44,7 @@ anEpsi=0.0000000001::Float64
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 
-print("firmvalue false ");checkAM(neq, nlag, nlead, checkH, bbJulia)
+# print("firmvalue false ");checkAM(neq, nlag, nlead, checkH, bbJulia)
     
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.1e-10::Float64,atol=0.0::Float64)&&

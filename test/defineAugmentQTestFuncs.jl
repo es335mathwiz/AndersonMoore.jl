@@ -2,8 +2,9 @@ module AugmentQTests
 
 using MAT
 
+include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl"))
 # test augmentQ 
-using ..AndersonMoore
+using .AndersonMoore
 
 # test augmentQ! firmvalue example
 function firmvalue()::Bool

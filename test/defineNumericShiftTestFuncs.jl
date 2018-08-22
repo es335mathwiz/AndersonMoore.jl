@@ -1,7 +1,7 @@
 module NumericShiftTests
 
-#include("../src/AndersonMoore.jl")
-using ..AndersonMoore, MAT
+include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl"))
+using .AndersonMoore, MAT
 
 
 #tweaked= False

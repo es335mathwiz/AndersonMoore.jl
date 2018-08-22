@@ -1,8 +1,8 @@
 module CcallTests
 
-# include("../src/AndersonMoore.jl")
+include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl"))
 # test ccall
-using ..AndersonMoore, MAT
+using .AndersonMoore, MAT
 
 # Original Tests
 function firmvalueFalse()::Bool

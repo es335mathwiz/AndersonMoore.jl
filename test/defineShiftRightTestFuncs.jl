@@ -1,6 +1,7 @@
 module ShiftRightTests
 
-using ..AndersonMoore
+include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl"))
+using .AndersonMoore
 
 # test shiftRight! firmvalue example
 function firmvalue()::Bool

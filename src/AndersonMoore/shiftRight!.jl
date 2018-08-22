@@ -12,7 +12,7 @@ function shiftRight!(matrixIn::Array{Float64,2}, nn::Int64)
 	 left = matrixIn[:, 1:(numColumns - nn)]
 
 	 # initialize new array same size as input matrix to all zeros
-	 result = zeros(matrixIn)
+	 result = zero(matrixIn)
 
 	 # replace right size of input matrix with the first nn columns
 	 result[:, (nn + 1):numColumns] = left

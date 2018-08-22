@@ -3,8 +3,8 @@ module BuildATests
 using MAT
 
 # test buildA!
-#include("../src/AndersonMoore.jl")
-using ..AndersonMoore
+include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl"))
+using .AndersonMoore
 
 #tweaked= False
 # test buildA! firmvalue example
@@ -26,9 +26,7 @@ hForADense=read(file,"hForADense")
 chkA=read(file,"aa")
 aa=if(typeof(chkA)==(Array{Float64,2})) chkA else hcat(chkA) end
 close(file)
-tic()
 (aaJulia,iaJulia,jsJulia)=buildA!(hForADense,qCols,neq)
-toc()
 isapprox(aaJulia,aa,rtol=0.1e-10::Float64,atol=0.0::Float64) &&
 isequal(iaJulia,ia)&&
 isequal(jsJulia,js)
