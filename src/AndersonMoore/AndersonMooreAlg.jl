@@ -105,5 +105,8 @@ function AndersonMooreAlg(hh::Array{Float64,2}, neq::Int64, nlag::Int64, nlead::
 
     return bb, rts, ia, nexact, nnumeric, lgroots, AMAcode
  # (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = AMAalg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
+<<<<<<< HEAD:src/AndersonMoore/AndersonMooreAlg.jl
     
+=======
+>>>>>>> develop:src/AndersonMoore/AndersonMooreAlg.jl
 end # AndersonMooreAlg

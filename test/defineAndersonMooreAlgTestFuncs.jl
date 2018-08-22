@@ -1,11 +1,20 @@
 module AndersonMooreAlgTests
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # include("../src/AndersonMoore.jl")
 # test AndersonMoore
 using ..AndersonMoore, MAT
     
 #tweaked= False
 # test AndersonMoore firmvalueFalse example
+=======
+# include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl")
+# test AndersonMooreAlg
+using ..AndersonMoore, MAT
+    
+#tweaked= False
+# test AndersonMooreAlg firmvalueFalse example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function firmvalueFalse()::Bool
 
 
@@ -41,7 +50,11 @@ AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 
 print("firmvalue false ");checkAM(neq, nlag, nlead, checkH, bbJulia)
@@ -55,7 +68,11 @@ iaJulia==ia
 end;
 
 #tweaked= False
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore firmvalue3Leads2LagsFalse example
+=======
+# test AndersonMooreAlg firmvalue3Leads2LagsFalse example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function firmvalue3Leads2LagsFalse()::Bool
 
 
@@ -89,7 +106,11 @@ lgrts=3::Int64
 AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
@@ -102,7 +123,11 @@ iaJulia==ia
 end;
 
 #tweaked= False
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore example7False example
+=======
+# test AndersonMooreAlg example7False example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function example7False()::Bool
 
 
@@ -137,7 +162,11 @@ AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
@@ -148,7 +177,11 @@ iaJulia==ia
 end;
 
 #tweaked= False
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore oneEquationNoLeadFalse example
+=======
+# test AndersonMooreAlg oneEquationNoLeadFalse example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function oneEquationNoLeadFalse()::Bool
 
 
@@ -183,7 +216,11 @@ AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
@@ -194,7 +231,11 @@ iaJulia==ia
 end;
 
 #tweaked= False
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore reliablePaperExmplFalse example
+=======
+# test AndersonMooreAlg reliablePaperExmplFalse example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function reliablePaperExmplFalse()::Bool
 
 
@@ -229,7 +270,11 @@ AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
@@ -240,7 +285,11 @@ iaJulia==ia
 end;
 
 #tweaked= False
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore athanFalse example
+=======
+# test AndersonMooreAlg athanFalse example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function athanFalse()::Bool
 
 
@@ -275,7 +324,11 @@ AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
@@ -286,7 +339,11 @@ iaJulia==ia
 end;
 
 #tweaked= False
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore habitmodFalse example
+=======
+# test AndersonMooreAlg habitmodFalse example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function habitmodFalse()::Bool
 
 
@@ -320,7 +377,11 @@ lgrts=5::Int64
 AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 
 #print("done\n")    
@@ -342,7 +403,11 @@ iaJulia==ia
 end;
 
 #tweaked= True
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore firmvalueTrue example
+=======
+# test AndersonMooreAlg firmvalueTrue example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function firmvalueTrue()::Bool
 
 
@@ -377,7 +442,11 @@ AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
@@ -388,7 +457,11 @@ iaJulia==ia
 end;
 
 #tweaked= True
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore firmvalue3Leads2LagsTrue example
+=======
+# test AndersonMooreAlg firmvalue3Leads2LagsTrue example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function firmvalue3Leads2LagsTrue()::Bool
 
 
@@ -423,7 +496,11 @@ AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)  
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
 #transition matrix has three eigenvalues of equal magnitude two complex matlab orders them differently than  julia so just checking the magnitudes
@@ -435,7 +512,11 @@ iaJulia==ia
 end;
 
 #tweaked= True
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore example7True example
+=======
+# test AndersonMooreAlg example7True example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function example7True()::Bool
 
 
@@ -470,7 +551,11 @@ AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
@@ -481,7 +566,11 @@ iaJulia==ia
 end;
 
 #tweaked= True
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore oneEquationNoLeadTrue example
+=======
+# test AndersonMooreAlg oneEquationNoLeadTrue example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function oneEquationNoLeadTrue()::Bool
 
 
@@ -516,7 +605,11 @@ AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
@@ -527,7 +620,11 @@ iaJulia==ia
 end;
 
 #tweaked= True
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore reliablePaperExmplTrue example
+=======
+# test AndersonMooreAlg reliablePaperExmplTrue example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function reliablePaperExmplTrue()::Bool
 
 
@@ -562,7 +659,11 @@ AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
@@ -573,7 +674,11 @@ iaJulia==ia
 end;
 
 #tweaked= True
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore athanTrue example
+=======
+# test AndersonMooreAlg athanTrue example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function athanTrue()::Bool
 
 
@@ -608,7 +713,11 @@ AndersonMoorecode=1::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 isapprox(bbJulia,bb,rtol=0.1e-10::Float64,atol=0.0::Float64)&&
 isapprox(rtsJulia[1:lgrts],rts[1:lgrts],rtol=0.1e-10::Float64,atol=0.0::Float64)&&
@@ -619,7 +728,11 @@ iaJulia==ia
 end;
 
 #tweaked= True
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore habitmodTrue example
+=======
+# test AndersonMooreAlg habitmodTrue example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function habitmodTrue()::Bool
 
 
@@ -655,7 +768,11 @@ AndersonMoorecode=3::Int64
 
 anEpsi=0.0000000001::Float64
 
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) = 
+=======
+(bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) = 
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
 
 #print("\n")
@@ -677,7 +794,11 @@ end;
 
 #=
 #tweaked= True
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
 # test AndersonMoore habitmodTrue example
+=======
+# test AndersonMooreAlg habitmodTrue example
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
 function habitmodTrue()::Bool
     neq=12::Int64;nlag=4::Int64;nlead=1::Int64
     qRows=(neq*nlead)::Int64;qCols=(neq*(nlag+nlead))::Int64
@@ -701,7 +822,11 @@ function habitmodTrue()::Bool
     lgrts=6::Int64
     AndersonMoorecode=3::Int64
     anEpsi=0.0000000001::Float64
+<<<<<<< HEAD:test/defineAndersonMooreAlgTestFuncs.jl
     (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AndersonMoorecodeJulia) =
+=======
+    (bbJulia,rtsJulia,iaJulia,nexJulia,nnumJulia,lgrtsJulia,AMAcodeJulia) =
+>>>>>>> develop:test/defineAndersonMooreAlgTestFuncs.jl
         AndersonMooreAlg(hh,neq,nlag,nlead,anEpsi,1+anEpsi)
     #print("\n")
     #print(norm(bbJulia-bb))

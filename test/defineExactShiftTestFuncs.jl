@@ -297,5 +297,5 @@ nexact==nexactNewMatlab
 end;
 
 
-end
+end # module
 

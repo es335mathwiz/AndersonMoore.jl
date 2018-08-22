@@ -1,7 +1,3 @@
-path = joinpath(dirname(@__FILE__), "..", "deps")
-cd("$path")
-run(`make`)
-
 using Base.Test
 
 const AndersonMoore_path = joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl")
@@ -166,16 +162,35 @@ end
     
 test_path = joinpath(dirname(@__FILE__), "defineErrTestFuncs.jl")
 include(test_path)  
+<<<<<<< HEAD
 @testset "test Err" begin
+=======
+@testset "test err" begin
+>>>>>>> develop
     @test ErrTests.noErrors()
     @test ErrTests.tooManyRoots()
     @test ErrTests.tooFewRoots()
     #@test ErrTests.tooManyExactShifts()
     #@test ErrTests.tooManyNumericShifts()
     @test ErrTests.spurious()
+<<<<<<< HEAD
     
+=======
 end
-    
+
+test_path = joinpath(dirname(@__FILE__), "defineGensysTestFuncs.jl")
+include(test_path)
+@testset "test gensysToAMA" begin
+    @test GensysTests.example0()
+    @test GensysTests.example1()
+    @test GensysTests.example2()
+    @test GensysTests.example3()
+    @test GensysTests.example4()
+    @test GensysTests.example5()
+    #@test GensysTests.example6()
+    @test GensysTests.example7()
+>>>>>>> develop
+end
 
 end #outer
 
