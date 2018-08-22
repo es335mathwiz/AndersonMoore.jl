@@ -50,9 +50,13 @@ before_install:
 #- julia -e 'Pkg.clone(pwd()); Pkg.build("AndersonMoore"); Pkg.test("AndersonMoore"; coverage=true)'
 
 after_success:
- - |
-   julia -e '
-     cd(Pkg.dir("AndersonMoore"))
-     Pkg.add("Coverage")
-     using Coverage
-     Codecov.submit(process_folder()); Coveralls.submit(process_folder())'
+  - |
+    julia -e '
+        if VERSION >= v"0.7.0-DEV.3656"
+            import Pkg
+        else
+            cd(Pkg.dir("AndersonMoore"))
+        end
+        Pkg.add("Coverage")
+        using Coverage
+        Codecov.submit(process_folder()); Coveralls.submit(process_folder())'
