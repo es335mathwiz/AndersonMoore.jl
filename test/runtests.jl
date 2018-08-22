@@ -134,7 +134,6 @@ include(joinpath(dirname(@__FILE__), "defineAndersonMooreAlgTestFuncs.jl"))
     
 end
 
-#=
 # test_path = joinpath(dirname(@__FILE__), "defineCcallTestFuncs.jl")
 include(joinpath(dirname(@__FILE__), "defineCcallTestFuncs.jl"))
 @testset "test ccall" begin
