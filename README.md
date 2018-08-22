@@ -97,7 +97,7 @@ upperbnd = 1 + condn
 
 ```julia
 (G1, CC, impact, fmat, fwt, ywt, gev, eu) = 
-     gensysToAMA(g0, g1, cc, psi, pi, div, varargin = "" ) =
+     gensysToAMA(g0, g1, cc, psi, pi, div, varargin = "" ) 
 ```
 
 To run AMA, subsitute the gensys style inputs into the above command but substitute "ama" for the argument varargin.
