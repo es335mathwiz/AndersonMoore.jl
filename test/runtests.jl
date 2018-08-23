@@ -1,5 +1,3 @@
-#using Test
-import Compat.Test
 using Compat.Test: @test, @test_broken, @testset
 
 const AndersonMoore_path = joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl")

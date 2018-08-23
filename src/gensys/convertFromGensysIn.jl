@@ -12,7 +12,7 @@ function convertFromGensysIn(g0,g1,pi)
     #              g0,-pi;...
     #              zeros(piCol,gDim+piCol)]);
 
-    @compat matrix = Matrix(I, piCol, piCol)
+    matrix = Compat.Matrix(I, piCol, piCol)
     theHP = hcat(zeros(piCol, gDim), matrix)
     theHP = vcat(zeros(gDim, gDim + piCol), theHP)
     #theHP=sparse([...

@@ -6,7 +6,7 @@ function convertToGensysOut(bb, phi, theF, cc, g0, g1, psi, ncpi)
     G1 = bb[1:nr, 1:nc]
 
     ststate = (g0 - g1) \ cc
-    CC = (Matrix(I, nr, nr) - G1) * ststate
+    CC = (Compat.Matrix(I, nr, nr) - G1) * ststate
 
     thePsi = vcat(psi, zeros(ncpi, ncpsi))
     aa = phi * thePsi

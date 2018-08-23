@@ -20,7 +20,7 @@ function buildA!(hh::Array{Float64,2}, qcols::Int64, neq::Int64)
         eyerows = 1:(qcols - neq)
         eyecols = (neq + 1):qcols
         # aa[eyerows, eyecols] = eye(qcols - neq)
-	aa[eyerows, eyecols] = Matrix(I, qcols - neq, qcols - neq) 
+	aa[eyerows, eyecols] = Compat.Matrix(I, qcols - neq, qcols - neq) 
     end
     hrows      = (qcols - neq + 1):qcols
     aa[hrows, :] =  tmp[:, left]
