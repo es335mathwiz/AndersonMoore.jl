@@ -42,7 +42,7 @@ function exactShift!(hh::Array{Float64,2}, qq::Array{Float64,2}, iq::Int64, qRow
         # update zerorows as before but with our new hh matrix
         zerorows = hh[:, right]'
         zerorows = abs.(zerorows)
-        zerorows = sum(zerorows; dims=1)
+        zerorows = Compat.sum(zerorows; dims=1)
 	zerorows = LinearIndices(zerorows)[findall(row->(row == 0), zerorows)]
     end # while
     

@@ -13,15 +13,16 @@ function numericShift!(hh::Array{Float64,2}, qq::Array{Float64,2}, iq::Int64, qR
     right = (qCols + 1):(qCols + neq)
 
     # preform QR factorization on right side of hh
-    F = qr(hh[:, right], Val(true))
+    F = Compat.qr(hh[:, right], Val(true))
 
     # filter R only keeping rows that are zero
-    zerorows = abs.(diag(F.R))
+    Q, R = F
+    zerorows = abs.(diag(R))
     zerorows = findall(x->(float(x) <= condn), zerorows)
 
     while (length(zerorows) != 0) && (iq <= qRows)
         # update hh with matrix multiplication of Q and hh
-        hh = *(F.Q', hh)
+        hh = *(Q', hh)
 
         # need total number of zero rows
         nz = size(zerorows, 1)
@@ -37,8 +38,9 @@ function numericShift!(hh::Array{Float64,2}, qq::Array{Float64,2}, iq::Int64, qR
         nnumeric = nnumeric + nz
 
         # redo QR factorization and filter R as before
-        F = qr(hh[:, right], Val(true))
-        zerorows = abs.(diag(F.R))
+        F = Compat.qr(hh[:, right], Val(true))
+	Q, R = F
+        zerorows = abs.(diag(R))
         zerorows = findall(x->(float(x) <= condn), zerorows)
 
     end # while

@@ -6,9 +6,11 @@ module AndersonMoore
 using Compat
 import Compat.String
 
-using Compat.Libdl, Compat.LinearAlgebra, Compat.SparseArrays, Compat.qr, Compat.sum
 
-import Compat
+using Compat: Libdl, LinearAlgebra, String, SparseArrays
+#using Compat.LinearAlgebra, Compat.SparseArrays, Compat.qr, Compat.sum
+
+#import Compat.sum
 #using Compat.LinearAlgebra
 #using 
 #using Compat.LinearAlgebra: cond, diag, diagm, eig, eigvals, eigvecs, I, norm, nullspace, qr, rank
@@ -16,8 +18,8 @@ import Compat
 #using Compat.SparseArrays: SparseMatrixCSC
 
 # Set-up for callSparseAim
-const lib = dlopen(normpath(joinpath(dirname(@__FILE__), "..", "deps", "libAndersonMoore")))
-const sym = dlsym(lib, :callSparseAim)
+#const lib = dlopen(normpath(joinpath(dirname(@__FILE__), "..", "deps", "libAndersonMoore")))
+#const sym = dlsym(lib, :callSparseAim)
 
 # Include all files    
 for (root, dirs, files) in walkdir(joinpath(dirname(@__FILE__)))

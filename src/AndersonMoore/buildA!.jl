@@ -35,7 +35,7 @@ function buildA!(hh::Array{Float64,2}, qcols::Int64, neq::Int64)
         js[1, ii] = ii
     end
     
-    zerocols = sum(abs.(aa); dims=1)
+    zerocols = Compat.sum(abs.(aa); dims=1)
     zerocols = LinearIndices(zerocols)[findall(col->(col == 0), zerocols)]
 
 
@@ -45,7 +45,7 @@ function buildA!(hh::Array{Float64,2}, qcols::Int64, neq::Int64)
         aa = deleteRows(aa, zerocols)
         js = deleteCols(js, zerocols)
         
-        zerocols = sum(abs.(aa); dims=1)  
+        zerocols = Compat.sum(abs.(aa); dims=1)  
         zerocols = LinearIndices(zerocols)[findall(col->(col == 0), zerocols)]
 
     end

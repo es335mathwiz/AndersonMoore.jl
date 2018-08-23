@@ -1,5 +1,6 @@
 module EigenSysTests
-using MAT
+using MAT, Compat
+import Compat.String
 
 # test eigenSys
 include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl"))
@@ -34,12 +35,12 @@ lgroots=1
 
 
     # rounding to 16 digit places
-wwJulia = round.(wwJulia; digits=16)
-ww = round.(wwJulia; digits=16)
-rtsJulia = round.(rtsJulia; digits=16)
-rts = round.(rts; digits=16)
+wwJulia = Compat.round.(wwJulia; digits=16, base=10)
+ww = Compat.round.(wwJulia; digits=16, base=10)
+rtsJulia = Compat.round.(rtsJulia; digits=16, base=10)
+rts = Compat.round.(rts; digits=16, base=10)
     
-isapprox(round.(wwJulia;digits=16),round.(ww;digits=16),rtol=0.::Float64,atol=1e-15::Float64) &&
+isapprox(wwJulia,ww,rtol=0.::Float64,atol=1e-15::Float64) &&
 isapprox(rtsJulia,rts,rtol=0.0::Float64,atol=0.1e-10::Float64)&&
 lgrootsJulia==lgroots
 end;
@@ -82,10 +83,10 @@ lgroots=3
 (wwJulia,rtsJulia,lgrootsJulia)=eigenSys!(aa,uprbnd,rowsLeft)
 
     # rounding to 16 digit places
-wwJulia = round.(wwJulia; digits=16)
-ww = round.(wwJulia; digits=16)
-rtsJulia = round.(rtsJulia; digits=16)
-rts = round.(rtsJulia; digits=16)
+wwJulia = Compat.round.(wwJulia; digits=16, base=10)
+ww = Compat.round.(wwJulia; digits=16, base=10)
+rtsJulia = Compat.round.(rtsJulia; digits=16, base=10)
+rts = Compat.round.(rtsJulia; digits=16, base=10)
     
 isapprox(wwJulia,ww,rtol=0.::Float64,atol=0.1e-16::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.::Float64,atol=0.1e-16::Float64)&&
@@ -122,10 +123,10 @@ lgroots=2
 (wwJulia,rtsJulia,lgrootsJulia)=eigenSys!(aa,uprbnd,rowsLeft)
     
     # rounding to 16 digit places
-wwJulia = round.(wwJulia; digits=16)
-ww = round.(wwJulia; digits=16)
-rtsJulia = round.(rtsJulia; digits=16)
-rts = round.(rtsJulia; digits=16)
+wwJulia = Compat.round.(wwJulia; digits=16, base=10)
+ww = Compat.round.(wwJulia; digits=16, base=10)
+rtsJulia = Compat.round.(rtsJulia; digits=16, base=10)
+rts = Compat.round.(rtsJulia; digits=16, base=10)
     
 isapprox(wwJulia,ww,rtol=0.::Float64,atol=0.1e-16::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.::Float64,atol=0.1e-16::Float64)&&
@@ -156,10 +157,10 @@ lgroots=0
 (wwJulia,rtsJulia,lgrootsJulia)=eigenSys!(aa,uprbnd,rowsLeft)
     
     # rounding to 16 digit places
-wwJulia = round.(wwJulia; digits=16)
-ww = round.(wwJulia; digits=16)
-rtsJulia = round.(rtsJulia; digits=16)
-rts = round.(rtsJulia; digits=16)
+wwJulia = Compat.round.(wwJulia; digits=16, base=10)
+ww = Compat.round.(wwJulia; digits=16, base=10)
+rtsJulia = Compat.round.(rtsJulia; digits=16, base=10)
+rts = Compat.round.(rtsJulia; digits=16, base=10)
     
 isapprox(wwJulia,ww,rtol=0.::Float64,atol=0.1e-16::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.::Float64,atol=0.1e-16::Float64)&&
@@ -199,10 +200,10 @@ lgroots=2
 (wwJulia,rtsJulia,lgrootsJulia)=eigenSys!(aa,uprbnd,rowsLeft)
     
     # rounding to 16 digit places
-wwJulia = round.(wwJulia; digits=16)
-ww = round.(wwJulia; digits=16)
-rtsJulia = round.(rtsJulia; digits=16)
-rts = round.(rtsJulia; digits=16)
+wwJulia = Compat.round.(wwJulia; digits=16, base=10)
+ww = Compat.round.(wwJulia; digits=16, base=10)
+rtsJulia = Compat.round.(rtsJulia; digits=16, base=10)
+rts = Compat.round.(rtsJulia; digits=16, base=10)
     
 isapprox(wwJulia,ww,rtol=0.::Float64,atol=0.1e-16::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.::Float64,atol=0.1e-16::Float64)&&
@@ -251,10 +252,10 @@ lgroots=1
 (wwJulia,rtsJulia,lgrootsJulia)=eigenSys!(aa,uprbnd,rowsLeft)
     
     # rounding to 16 digit places
-wwJulia = round.(wwJulia; digits=16)
-ww = round.(wwJulia; digits=16)
-rtsJulia = round.(rtsJulia; digits=16)
-rts = round.(rtsJulia; digits=16)
+wwJulia = Compat.round.(wwJulia; digits=16, base=10)
+ww = Compat.round.(wwJulia; digits=16, base=10)
+rtsJulia = Compat.round.(rtsJulia; digits=16, base=10)
+rts = Compat.round.(rtsJulia; digits=16, base=10)
     
 isapprox(wwJulia,ww,rtol=0.::Float64,atol=0.1e-16::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.::Float64,atol=0.1e-16::Float64)&&
@@ -353,10 +354,10 @@ lgroots=5
 (wwJulia,rtsJulia,lgrootsJulia)=eigenSys!(aa,uprbnd,rowsLeft)
     
     # rounding to 16 digit places
-wwJulia = round.(wwJulia; digits=16)
-ww = round.(wwJulia; digits=16)
-rtsJulia = round.(rtsJulia; digits=16)
-rts = round.(rtsJulia; digits=16)
+wwJulia = Compat.round.(wwJulia; digits=16, base=10)
+ww = Compat.round.(wwJulia; digits=16, base=10)
+rtsJulia = Compat.round.(rtsJulia; digits=16, base=10)
+rts = Compat.round.(rtsJulia; digits=16, base=10)
     
 isapprox(wwJulia,ww,rtol=0.::Float64,atol=0.1e-16::Float64)&&
 isapprox(rtsJulia,rts,rtol=0.::Float64,atol=0.1e-16::Float64)&&

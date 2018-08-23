@@ -9,8 +9,8 @@ function checkAM(neq, nlag, nlead, h, b)
 
 # Append negative identity matrix to b
 
-b = cat(b, -Matrix(I, neq, neq); dims=2)
-    
+b = hcat(b, -Matrix(I, neq, neq))
+
 # Define indexes into the lagged part (minus)
 # and the current and lead part (plus) of h
 
