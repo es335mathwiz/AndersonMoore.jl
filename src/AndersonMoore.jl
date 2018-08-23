@@ -18,13 +18,14 @@ using Compat: Libdl, LinearAlgebra, String, SparseArrays
 #using Compat.SparseArrays: SparseMatrixCSC
 
 # Set-up for callSparseAim
-#const lib = dlopen(normpath(joinpath(dirname(@__FILE__), "..", "deps", "libAndersonMoore")))
-#const sym = dlsym(lib, :callSparseAim)
+const lib = dlopen(normpath(joinpath(dirname(@__FILE__), "..", "deps", "libAndersonMoore")))
+const sym = dlsym(lib, :callSparseAim)
+  
 
 # Include all files    
-for (root, dirs, files) in walkdir(joinpath(dirname(@__FILE__)))
+for (root, _, files) in walkdir(dirname(@__FILE__))
     for file in files
-    	if file != "AndersonMoore.jl"
+    	if file != "AndersonMoore.jl"  # else would cause endless loop
            include(joinpath(root, file))
 	end # if
     end # inner for
