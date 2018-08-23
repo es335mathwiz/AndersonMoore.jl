@@ -14,9 +14,11 @@ const sym = dlsym(lib, :callSparseAim)
 # Include all files    
 for (root, dirs, files) in walkdir(joinpath(dirname(@__FILE__)))
     for file in files
-        file == "AndersonMoore.jl" ? nothing : include(joinpath(root, file))
-    end
-end
+    	if file != "AndersonMoore.jl"
+           include(joinpath(root, file))
+	end # if
+    end # inner for
+end # outer for
 
 # Export all functions
 export exactShift!, numericShift!, shiftRight!, buildA!, augmentQ!, eigenSys!, reducedForm,
