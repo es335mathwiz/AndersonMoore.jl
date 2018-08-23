@@ -19,7 +19,7 @@ function numericShift!(hh::Array{Float64,2}, qq::Array{Float64,2}, iq::Int64, qR
     zerorows = abs.(diag(F.R))
     zerorows = findall(x->(float(x) <= condn), zerorows)
 
-    @inbounds while (length(zerorows) != 0) && (iq <= qRows)
+    while (length(zerorows) != 0) && (iq <= qRows)
         # update hh with matrix multiplication of Q and hh
         hh = *(F.Q', hh)
 

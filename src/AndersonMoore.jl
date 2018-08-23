@@ -3,9 +3,17 @@ __precompile__()
 module AndersonMoore
 # http://www.stochasticlifestyle.com/finalizing-julia-package-documentation-testing-coverage-publishing/
 
-using Compat.LinearAlgebra: cond, diag, diagm, eig, eigvals, eigvecs, I, norm, nullspace, qr, rank
-using Compat.Libdl: dlopen, dlsym
-using Compat.SparseArrays: SparseMatrixCSC
+using Compat
+import Compat.String
+
+using Compat.Libdl, Compat.LinearAlgebra, Compat.SparseArrays, Compat.qr, Compat.sum
+
+import Compat
+#using Compat.LinearAlgebra
+#using 
+#using Compat.LinearAlgebra: cond, diag, diagm, eig, eigvals, eigvecs, I, norm, nullspace, qr, rank
+#using Compat.Libdl: dlopen, dlsym
+#using Compat.SparseArrays: SparseMatrixCSC
 
 # Set-up for callSparseAim
 const lib = dlopen(normpath(joinpath(dirname(@__FILE__), "..", "deps", "libAndersonMoore")))

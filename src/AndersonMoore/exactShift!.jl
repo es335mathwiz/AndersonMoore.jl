@@ -20,7 +20,7 @@ function exactShift!(hh::Array{Float64,2}, qq::Array{Float64,2}, iq::Int64, qRow
     zerorows = abs.(zerorows)
 
     # take the sum of the rows (aka 1st dimenison in julia)
-    zerorows = sum(zerorows; dims=1)
+    zerorows = Compat.sum(zerorows; dims=1)
       
     # anon function returns index of the rows who sum is 0
     zerorows = LinearIndices(zerorows)[findall(row->(row == 0), zerorows)]
