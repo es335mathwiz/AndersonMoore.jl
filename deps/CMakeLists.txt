@@ -12,6 +12,5 @@ include_directories(include)
 file(GLOB SOURCES "src/*")
 
 add_library(AndersonMoore SHARED ${SOURCES})
-# set_target_properties(AndersonMoore PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
 
 target_link_libraries(AndersonMoore ${LIBS})
