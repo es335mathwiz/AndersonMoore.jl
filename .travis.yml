@@ -18,11 +18,6 @@ notifications:
 git:
   depth: 50
 
-# safelist
-branches:
-  only:
-  - develop
-
 ## uncomment the following lines to allow failures on nightly julia
 ## (tests will run but not make your overall status red)
 matrix:
@@ -35,8 +30,6 @@ addons:
      update: true
      packages:
      - gfortran
-     - gcc
-     - liblapack-dev
 
 before_install:
 - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
