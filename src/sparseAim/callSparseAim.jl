@@ -5,6 +5,8 @@ Julia wrapper function that calls the c function callSparseAim.
 """
 function callSparseAim( hh, leads, lags )
 
+    sym = loadSparseAim("yes")
+
     # allocate space for the matrices and initialize inputs
     neq        = size(hh, 1)
     nstate     = 0

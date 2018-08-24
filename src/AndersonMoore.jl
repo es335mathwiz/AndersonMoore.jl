@@ -6,20 +6,15 @@ module AndersonMoore
 using Compat
 using Compat.LinearAlgebra
 
-# Set-up for callSparseAim
-const lib = Compat.Libdl.dlopen(normpath(joinpath(dirname(@__FILE__), "..", "deps", "libAndersonMoore")))
-const sym = Compat.Libdl.dlsym(lib, :callSparseAim)
-  
-
-# Include all files    
-for (root, _, files) in walkdir(dirname(@__FILE__))
-    for file in files
-    	if file != "AndersonMoore.jl"  # else would cause endless loop
-           include(joinpath(root, file))
-	end # if
-    end # inner for
-end # outer for
-
+dirs = ["AndersonMoore", "gensys", "sparseAim", "util"]
+for dir in dirs
+    for (root, _, files) in walkdir(joinpath(dirname(@__FILE__), dir))
+        for file in files
+            include(joinpath(root, file))
+        end
+    end
+end
+    
 # Export all functions
 export exactShift!, numericShift!, shiftRight!, buildA!, augmentQ!, eigenSys!, reducedForm,
 AndersonMooreAlg, sameSpan, deleteCols, deleteRows, callSparseAim, checkAM, err, gensysToAMA

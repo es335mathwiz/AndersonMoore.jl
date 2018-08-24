@@ -1,8 +1,8 @@
 using Compat.Test: @test, @test_broken, @testset
 using Compat.Sys: iswindows, isapple, islinux
 
-makepath = joinpath(dirname(@__FILE__), "..", "deps")
 
+makepath = joinpath(dirname(@__FILE__), "..", "deps")
 if !isfile(joinpath(makepath, "Makefile"))
     start = pwd()
     cd(makepath)
