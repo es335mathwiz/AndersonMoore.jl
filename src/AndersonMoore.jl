@@ -17,6 +17,6 @@ end
     
 # Export all functions
 export exactShift!, numericShift!, shiftRight!, buildA!, augmentQ!, eigenSys!, reducedForm,
-AndersonMooreAlg, sameSpan, deleteCols, deleteRows, callSparseAim, checkAM, err, gensysToAMA
+AndersonMooreAlg, sameSpan, deleteCols, deleteRows, loadSparseAim, callSparseAim, checkAM, err, gensysToAMA
 
 end # module
