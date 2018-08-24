@@ -1,14 +1,14 @@
 using Compat.Test: @test, @test_broken, @testset
-using Compat.Sys: is_windows, is_apple, is_linux
+using Compat.Sys: iswindows, isapple, islinux
 
 makepath = joinpath(dirname(@__FILE__), "..", "deps")
 
 if !isfile(joinpath(makepath, "Makefile"))
     start = pwd()
     cd(makepath)
-    if is_windows()
+    if Sys.iswindows()
         run(`cmake -DCMAKE_IGNORE_PATH="C:/Program Files/Git/usr/bin" -G "MinGW Makefiles" .`)
-    elseif is_apple() || is_linux()
+    elseif Sys.isapple() || Sys.islinux()
         run(`cmake .`)
     else
         error("This system is not supported by AndersonMoore")
