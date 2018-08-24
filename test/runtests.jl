@@ -1,7 +1,24 @@
 using Compat.Test: @test, @test_broken, @testset
 
-const AndersonMoore_path = joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl")
-include(AndersonMoore_path)
+makepath = joinpath(dirname(@__FILE__), "..", "deps")
+
+if !isfile(joinpath(makepath, "Makefile"))
+    start = pwd()
+    cd(makepath)
+    if is_windows()
+        run(`cmake -DCMAKE_IGNORE_PATH="C:/Program Files/Git/usr/bin" -G "MinGW Makefiles" .`)
+    elseif is_apple() || is_linux()
+        run(`cmake .`)
+    else
+        error("This system is not supported by AndersonMoore")
+    end
+    
+    run(`make`)
+    cd(start)
+end
+
+const AndersonMooreModule = joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl")
+include(AndersonMooreModule)
 
 # test_path = joinpath(dirname(@__FILE__), "defineShiftRightTestFuncs.jl")
 include(joinpath(dirname(@__FILE__), "defineShiftRightTestFuncs.jl"))

@@ -1,6 +1,5 @@
 module EigenSysTests
-using MAT, Compat
-import Compat.String
+using Compat
 
 # test eigenSys
 include(joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl"))
