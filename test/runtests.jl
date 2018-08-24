@@ -1,23 +1,6 @@
 using Compat
 using Compat.Test: @test, @test_broken, @testset
 
-
-makepath = joinpath(dirname(@__FILE__), "..", "deps")
-if !isfile(joinpath(makepath, "Makefile"))
-    start = pwd()
-    cd(makepath)
-    if Compat.Sys.iswindows()
-        run(`cmake -DCMAKE_IGNORE_PATH="C:/Program Files/Git/usr/bin" -G "MinGW Makefiles" .`)
-    elseif Compat.Sys.isapple() || Compat.Sys.islinux()
-        run(`cmake .`)
-    else
-        error("This system is not supported by AndersonMoore")
-    end
-    
-    run(`make`)
-    cd(start)
-end
-
 const AndersonMooreModule = joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl")
 include(AndersonMooreModule)
 

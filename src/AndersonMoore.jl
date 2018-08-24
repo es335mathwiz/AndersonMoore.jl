@@ -6,6 +6,8 @@ module AndersonMoore
 using Compat
 using Compat.LinearAlgebra
 
+# Walk through all the directories in src and add the files
+# If you add/remove/rename a directory, mirror the change here
 dirs = ["AndersonMoore", "gensys", "sparseAim", "util"]
 for dir in dirs
     for (root, _, files) in walkdir(joinpath(dirname(@__FILE__), dir))
