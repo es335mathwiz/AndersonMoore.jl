@@ -1,4 +1,5 @@
 using Compat.Test: @test, @test_broken, @testset
+using Compat.Sys: is_windows, is_apple, is_linux
 
 makepath = joinpath(dirname(@__FILE__), "..", "deps")
 
