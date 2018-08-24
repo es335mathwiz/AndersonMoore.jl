@@ -7,8 +7,8 @@ using Compat
 using Compat.LinearAlgebra
 
 # Set-up for callSparseAim
-const lib = Compat.Libdl.dlopen(normpath(joinpath(dirname(@__FILE__), "..", "deps", "libAndersonMoore")))
-const sym = Compat.Libdl.dlsym(lib, :callSparseAim)
+#const lib = Compat.Libdl.dlopen(normpath(joinpath(dirname(@__FILE__), "..", "deps", "libAndersonMoore")))
+#const sym = Compat.Libdl.dlsym(lib, :callSparseAim)
   
 
 # Include all files    
