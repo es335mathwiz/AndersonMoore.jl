@@ -19,7 +19,7 @@ Pkg.add("AndersonMoore")
 
 ## Usage
 
-This algorithm solves linear rational expectations models. There is a fast and slightly faster use for this package outlined below. The former calls a julia language implementation and the latter calls a C/Fortran implementation. To begin,
+This algorithm solves linear rational expectations models. There is a fast and slightly faster method to execute the algorithm which is outlined below. AndersonMooreAlg calls a julia language implementation and callSparseAim executes a C/Fortran implementation. Lastly, gensysToAMA is a function for users who are accustomed to gensys style inputs and outputs but wish to use AMA. It can be shown that AMA is faster than gensys. To begin,
 
 Load the module:
 
@@ -61,7 +61,7 @@ Finally, give an inclusive upper bound for modulus of roots allowed in reduced f
 upperbnd = 1 + condn
 ```
 
-To execute the algorithm with julia: 
+#### To execute the algorithm with julia: 
 
 ```julia
 (b, rts, ia, nexact, nnumeric, lgroots, AMAcode) =
@@ -78,7 +78,7 @@ To execute the algorithm with julia:
   <li>  AMAcode   -  Return code.<br />                                          </li>
 </ul>
 
-To execute the algorithm with C/Fortran:
+#### To execute the algorithm with C/Fortran:
 
 ```julia
 (h, b, q, AMAcode) = 
@@ -93,8 +93,27 @@ To execute the algorithm with C/Fortran:
   <li>	AMAcode   -  Return code.                                     </li>
 </ul>
 
+#### For those accustomed to gensys:
+
+```julia
+(G1, CC, impact, fmat, fwt, ywt, gev, eu) = 
+     gensysToAMA(g0, g1, cc, psi, pi, div, varargin = "" ) 
+```
+
+To run AMA, subsitute the gensys style inputs into the above command but substitute "ama" for the argument varargin.
+     
+
 ## More
 
 For more information and an indepth analysis of the algorithm, please read the [full paper](https://www.federalreserve.gov/pubs/feds/2010/201013/201013pap.pdf) written by [Gary S. Anderson](https://github.com/es335mathwiz).
 
-Author: [Gregory Tunell](https://github.com/gtunell) e-mail available at <gregtunell@gmail.com>.
+The authors would appreciate acknowledgement by citation of any of the following papers:
+
+Anderson, G. and Moore, G. "A Linear Algebraic Procedure For Solving Linear Perfect Foresight Models." Economics Letters, 17, 1985.
+
+Anderson, G. "Solving Linear Rational Expectations Models: A Horse Race." Computational Economics, 2008, vol. 31, issue 2, pp. 95-113
+
+Anderson, G. "A Reliable and Computationally Efficient Algorithm for Imposing the Saddle Point Property in Dynamic Models." Journal of Economic Dynamics and Control, 2010, vol 34, issue 3, pp. 472-489.
+
+
+Developer: [Gregory Tunell](https://github.com/gtunell) e-mail available at <gregtunell@gmail.com>.

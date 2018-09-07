@@ -1,15 +1,11 @@
-path = joinpath(dirname(@__FILE__), "..", "deps")
-cd("$path")
-run(`cmake .`)
-run(`make`)
+using Compat
+using Compat.Test: @test, @test_broken, @testset
 
-using Base.Test
+const AndersonMooreModule = joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl")
+include(AndersonMooreModule)
 
-const AndersonMoore_path = joinpath(dirname(@__FILE__), "..", "src", "AndersonMoore.jl")
-include(AndersonMoore_path)
-
-test_path = joinpath(dirname(@__FILE__), "defineShiftRightTestFuncs.jl")
-include(test_path)
+# test_path = joinpath(dirname(@__FILE__), "defineShiftRightTestFuncs.jl")
+include(joinpath(dirname(@__FILE__), "defineShiftRightTestFuncs.jl"))
 @testset "outer"  begin# an outer so that it does't quit on first fail
 @testset "test shiftRight" begin
 @test ShiftRightTests.firmvalue()
@@ -21,8 +17,8 @@ include(test_path)
 @test ShiftRightTests.habitmod()
 end
 
-test_path = joinpath(dirname(@__FILE__), "defineExactShiftTestFuncs.jl")
-include(test_path)  
+# test_path = joinpath(dirname(@__FILE__), "defineExactShiftTestFuncs.jl")
+include(joinpath(dirname(@__FILE__), "defineExactShiftTestFuncs.jl"))  
 @testset "test exactShift" begin
 @test ExactShiftTests.firmvalue()
 @test ExactShiftTests.firmvalue3Leads2Lags()
@@ -33,8 +29,8 @@ include(test_path)
 @test ExactShiftTests.habitmod()
 end
 
-test_path = joinpath(dirname(@__FILE__), "defineNumericShiftTestFuncs.jl")
-include(test_path)
+# test_path = joinpath(dirname(@__FILE__), "defineNumericShiftTestFuncs.jl")
+include(joinpath(dirname(@__FILE__), "defineNumericShiftTestFuncs.jl"))
 @testset "test numericShift" begin
 @test NumericShiftTests.firmvalueTrue()
 @test NumericShiftTests.firmvalue3Leads2LagsTrue()
@@ -53,8 +49,8 @@ include(test_path)
 @test NumericShiftTests.habitmodFalse()
 end
 
-test_path = joinpath(dirname(@__FILE__), "defineBuildATestFuncs.jl")
-include(test_path)
+# test_path = joinpath(dirname(@__FILE__), "defineBuildATestFuncs.jl")
+include(joinpath(dirname(@__FILE__), "defineBuildATestFuncs.jl"))
 @testset "test buildA" begin
 @test BuildATests.firmvalueFalse()
 @test BuildATests.firmvalue3Leads2LagsFalse()
@@ -73,8 +69,8 @@ include(test_path)
 @test BuildATests.habitmodTrue()
 end
 
-test_path = joinpath(dirname(@__FILE__), "defineEigenSysTestFuncs.jl")
-include(test_path)
+# test_path = joinpath(dirname(@__FILE__), "defineEigenSysTestFuncs.jl")
+include(joinpath(dirname(@__FILE__), "defineEigenSysTestFuncs.jl"))
 @testset "test eigenSys" begin
 @test EigenSysTests.firmvalue()
 @test EigenSysTests.firmvalue3Leads2Lags()
@@ -85,8 +81,8 @@ include(test_path)
 @test EigenSysTests.habitmod()
 end
 
-test_path = joinpath(dirname(@__FILE__), "defineAugmentQTestFuncs.jl")
-include(test_path)
+# test_path = joinpath(dirname(@__FILE__), "defineAugmentQTestFuncs.jl")
+include(joinpath(dirname(@__FILE__), "defineAugmentQTestFuncs.jl"))
 @testset "test augmentQ" begin
 @test AugmentQTests.firmvalue()
 @test AugmentQTests.firmvalue3Leads2Lags()
@@ -97,8 +93,8 @@ include(test_path)
 @test AugmentQTests.habitmod()
 end
 
-test_path = joinpath(dirname(@__FILE__), "defineReducedFormTestFuncs.jl")
-include(test_path)
+# test_path = joinpath(dirname(@__FILE__), "defineReducedFormTestFuncs.jl")
+include(joinpath(dirname(@__FILE__), "defineReducedFormTestFuncs.jl"))
 @testset "test reducedForm" begin
 @test ReducedFormTests.firmvalueFalse()
 @test ReducedFormTests.firmvalue3Leads2LagsFalse()
@@ -117,11 +113,9 @@ include(test_path)
 @test ReducedFormTests.habitmodTrue()
 end
     
-test_path = joinpath(dirname(@__FILE__), "defineAndersonMooreAlgTestFuncs.jl")
-include(test_path)
+# test_path = joinpath(dirname(@__FILE__), "defineAndersonMooreAlgTestFuncs.jl")
+include(joinpath(dirname(@__FILE__), "defineAndersonMooreAlgTestFuncs.jl"))
 @testset "test AndersonMooreAlg" begin
-
-    tic(); # clock speed
     
     @test AndersonMooreAlgTests.firmvalueFalse()
     @test AndersonMooreAlgTests.firmvalue3Leads2LagsFalse()
@@ -138,15 +132,13 @@ include(test_path)
     @test AndersonMooreAlgTests.reliablePaperExmplTrue()
     @test AndersonMooreAlgTests.athanTrue()
     @test AndersonMooreAlgTests.habitmodTrue()
-    print("Julia implementation ran for ");
-
-    toc(); # end clock 
+    
 end
 
-test_path = joinpath(dirname(@__FILE__), "defineCcallTestFuncs.jl")
-include(test_path)
+# test_path = joinpath(dirname(@__FILE__), "defineCcallTestFuncs.jl")
+include(joinpath(dirname(@__FILE__), "defineCcallTestFuncs.jl"))
 @testset "test ccall" begin
-    tic();
+    
     @test CcallTests.firmvalueFalse()
     @test CcallTests.firmvalue3Leads2LagsFalse()
     @test CcallTests.example7False()
@@ -162,11 +154,11 @@ include(test_path)
     @test CcallTests.reliablePaperExmplTrue()
     @test CcallTests.athanTrue()
     @test CcallTests.habitmodTrue()
-    print("C/Fortran implementation ran for ");toc();
+    
 end
     
-test_path = joinpath(dirname(@__FILE__), "defineErrTestFuncs.jl")
-include(test_path)  
+# test_path = joinpath(dirname(@__FILE__), "defineErrTestFuncs.jl")
+include(joinpath(dirname(@__FILE__), "defineErrTestFuncs.jl"))  
 @testset "test err" begin
     @test ErrTests.noErrors()
     @test ErrTests.tooManyRoots()
@@ -176,8 +168,8 @@ include(test_path)
     @test ErrTests.spurious()
 end
 
-test_path = joinpath(dirname(@__FILE__), "defineGensysTestFuncs.jl")
-include(test_path)
+# test_path = joinpath(dirname(@__FILE__), "defineGensysTestFuncs.jl")
+include(joinpath(dirname(@__FILE__), "defineGensysTestFuncs.jl"))
 @testset "test gensysToAMA" begin
     @test GensysTests.example0()
     @test GensysTests.example1()

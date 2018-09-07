@@ -3,19 +3,22 @@ __precompile__()
 module AndersonMoore
 # http://www.stochasticlifestyle.com/finalizing-julia-package-documentation-testing-coverage-publishing/
 
-# Set-up for callSparseAim
-const lib = Libdl.dlopen(normpath(joinpath(dirname(@__FILE__), "..", "deps", "libAndersonMoore")))
-const sym = Libdl.dlsym(lib, :callSparseAim)
+using Compat
+using Compat.LinearAlgebra
 
-# Include all files    
-for (root, dirs, files) in walkdir(joinpath(dirname(@__FILE__)))
-    for file in files
-        file == "AndersonMoore.jl" ? nothing : include(joinpath(root, file))
+# Walk through all the directories in src and add the files
+# If you add/remove/rename a directory, mirror the change here
+dirs = ["AndersonMoore", "gensys", "sparseAim", "util"]
+for dir in dirs
+    for (root, _, files) in walkdir(joinpath(dirname(@__FILE__), dir))
+        for file in files
+            include(joinpath(root, file))
+        end
     end
 end
-
+    
 # Export all functions
 export exactShift!, numericShift!, shiftRight!, buildA!, augmentQ!, eigenSys!, reducedForm,
-AndersonMooreAlg, sameSpan, deleteCols, deleteRows, callSparseAim, checkAM, err, gensysToAMA
+AndersonMooreAlg, sameSpan, deleteCols, deleteRows, loadSparseAim, callSparseAim, checkAM, err, gensysToAMA
 
 end # module

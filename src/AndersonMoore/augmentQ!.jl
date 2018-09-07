@@ -9,7 +9,7 @@ function augmentQ!(qq::Array{Float64,2}, ww::Array{Float64,2}, js::Array{Int64,2
     if(iq < qrows)
         lastrows = (iq + 1) : qrows
         wrows    = 1 : length(lastrows)
-        qq[lastrows, js] = @views ww[:, wrows]'
+        qq[lastrows, js] = ww[:, wrows]'
     end
 
     return qq

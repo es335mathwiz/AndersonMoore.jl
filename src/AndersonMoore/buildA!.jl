@@ -14,13 +14,13 @@ function buildA!(hh::Array{Float64,2}, qcols::Int64, neq::Int64)
     tmp[:, left] =  \(-hh[:, right], hh[:, left])
 
     #  Build the big transition matrix.
-
     aa = zeros(qcols, qcols)
 
     if(qcols > neq)
         eyerows = 1:(qcols - neq)
         eyecols = (neq + 1):qcols
-        aa[eyerows, eyecols] = eye(qcols - neq)
+        # aa[eyerows, eyecols] = eye(qcols - neq)
+	aa[eyerows, eyecols] = Compat.Matrix(I, qcols - neq, qcols - neq) 
     end
     hrows      = (qcols - neq + 1):qcols
     aa[hrows, :] =  tmp[:, left]
@@ -30,24 +30,23 @@ function buildA!(hh::Array{Float64,2}, qcols::Int64, neq::Int64)
     #  essential lags in the model.  They are the columns of q that will
     #  get the unstable left eigenvectors. 
 
-    js       = Array{Int64}(1,qcols)
+    js       = Array{Int64}(undef, 1, qcols)
     for ii in 1 : qcols
         js[1, ii] = ii
     end
     
-    zerocols = sum(abs.(aa), 1)
-    zerocols = find(col->(col == 0), zerocols)
+    zerocols = Compat.sum(abs.(aa); dims=1)
+    zerocols = LinearIndices(zerocols)[findall(col->(col == 0), zerocols)]
 
 
      while length(zerocols) != 0
-        # aa = filter!(x->(x !in zerocols), aa)
-        
+        # aa = filter!(x->(x !in zerocols), aa)       
         aa = deleteCols(aa, zerocols)        
         aa = deleteRows(aa, zerocols)
         js = deleteCols(js, zerocols)
         
-        zerocols = sum(abs.(aa), 1)  
-        zerocols = find(col->(col == 0), zerocols)
+        zerocols = Compat.sum(abs.(aa); dims=1)  
+        zerocols = LinearIndices(zerocols)[findall(col->(col == 0), zerocols)]
 
     end
     ia = length(js)

@@ -1,7 +1,12 @@
 environment:
+  MINGW_DIR: C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin
+  CYGWIN_DIR: C:\cygwin
+
   matrix:
   - JULIAVERSION: "julialang/bin/winnt/x86/0.6/julia-0.6-latest-win32.exe"
+    COMPILER: C:\MinGW
   - JULIAVERSION: "julialang/bin/winnt/x64/0.6/julia-0.6-latest-win64.exe"
+    COMPILER: C:\MinGW
 matrix:
   allow_failures:
     - JULIAVERSION: "julianightlies/bin/winnt/x86/julia-latest-win32.exe"
@@ -10,20 +15,17 @@ branches:
   only:
     - develop
     - /release-.*/
- 
+
 notifications:
   - provider: Email
     on_build_success: false
     on_build_failure: false
     on_build_status_changed: false
 
-image: Visual Studio 2017
+init:
+  - set PATH=%CYGWIN_DIR%;%PATH%
 
 install: 
-  - set PATH=%PATH:C:\MinGW\bin;=%
-  - cinst make
-  #- cinst cygwin
-  #- cinst mingw	
   # Download most recent Julia Windows binary
   - ps: (new-object net.webclient).DownloadFile(
         $("http://s3.amazonaws.com/"+$env:JULIAVERSION),

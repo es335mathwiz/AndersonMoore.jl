@@ -9,8 +9,8 @@ function checkAM(neq, nlag, nlead, h, b)
 
 # Append negative identity matrix to b
 
-b = cat(2, b, -eye(neq))
-    
+b = hcat(b, -Matrix(I, neq, neq))
+
 # Define indexes into the lagged part (minus)
 # and the current and lead part (plus) of h
 
@@ -31,8 +31,8 @@ q[(1:rb), (1:cb)] = b[(1:rb), (1:cb)]
 # solves for x(t), x(t+1), ..., x(t+nlead)) in terms of x(t-nlag),...,x(t-1).
 
 for i in (1:nlead)
-   rows = i * neq + (1:neq)
-   q[rows,:] = shiftRight!( q[(rows - neq), :], neq )
+   rows = i * neq .+ (1:neq)
+   q[rows,:] = shiftRight!( q[(rows .- neq), :], neq )
 end
     
 # Premultiply the left block of q by the negative inverse

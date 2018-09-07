@@ -14,16 +14,16 @@ function exactShift!(hh::Array{Float64,2}, qq::Array{Float64,2}, iq::Int64, qRow
 
     
     # get right most columns of hh
-    zerorows = hh[:, right]'    
+    zerorows = copy(hh[:, right]')    
 
     # compute absolute value  
     zerorows = abs.(zerorows)
 
     # take the sum of the rows (aka 1st dimenison in julia)
-    zerorows = sum(zerorows, 1)
+    zerorows = Compat.sum(zerorows; dims=1)
       
     # anon function returns index of the rows who sum is 0
-    zerorows = find(row->(row == 0), zerorows)
+    zerorows = LinearIndices(zerorows)[findall(row->(row == 0), zerorows)]
 
     # continues until all zerorow indexes have been processed
     while length(zerorows) != 0 && (iq <= qRows)
@@ -35,15 +35,15 @@ function exactShift!(hh::Array{Float64,2}, qq::Array{Float64,2}, iq::Int64, qRow
 	# update by shifting right by $neq columns
         hh[zerorows,:] = shiftRight!(hh[zerorows, :], neq)
 
-        # increment our variables the amount of zerorows found
+        # increment the variables the amount of zerorows found
         iq = iq + nz
         nexact = nexact + nz
 
         # update zerorows as before but with our new hh matrix
         zerorows = hh[:, right]'
         zerorows = abs.(zerorows)
-        zerorows = sum(zerorows, 1)
-        zerorows = find(row->(row == 0), zerorows)
+        zerorows = Compat.sum(zerorows; dims=1)
+	zerorows = LinearIndices(zerorows)[findall(row->(row == 0), zerorows)]
     end # while
     
     return (hh, qq, iq, nexact)  

@@ -12,7 +12,7 @@ function deleteCols(xIn, cols::Array{Int64, 1})
     numColDelete = length(cols)
 
     # uninitialized array with new dimensions
-    xOut = Array{Float64}(numRows, (numCols - numColDelete))
+    xOut = Array{Float64}(undef, numRows, (numCols - numColDelete))
 
     # dynamically build new matrix without columns to delete
     xIndexIn  = 1

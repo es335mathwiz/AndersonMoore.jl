@@ -61,35 +61,7 @@
                 println("used gensys2007 located at:  $sss")
             end
 
-        elseif varargin == "gensys" #assume calling as though original gensys but with a trailing optional arg
-            #arg1=varargin{1}
-            #switch arg1
-            #case 'gensys'
-
-            println("gensysToAMA:running gensys")
-            
-            try
-                println("gensysToAMA: trying gensys on your matlab path")
-                (G1, CC, impact, fmat, fwt, ywt, gev, eu) = gensys(g0, g1, cc, psi, pi, div)
-                sss = run(`which gensys`)  # which('gensys')
-                println("used gensys located at:  $sss")
-            catch
-                println("gensysToAMA:  that failed, using gensys2007 in gensysToAMA dir")
-                (G1, CC, impact, fmat, fwt, ywt, gev, eu) = gensys2007(g0, g1, cc, psi, pi, div)
-                sss = run(`which gensys`) # which('gensys2007')
-                println("used gensys2007 located at:  $sss")
-                println("gensysToAMA:done")
-            end
-
-        elseif varargin == "gensys2007" # case 'gensys2007'
-            
-            println("gensysToAMA:running gensys2007")
-            (G1, CC, impact, fmat, fwt, ywt, gev, eu) = gensys2007(g0, g1, cc, psi, pi, div)
-            sss = run(`which gensys2007`) # which('gensys2007')
-            println("used gensys2007 located at:  $sss")
-            println("gensysToAMA:done")
-
-        elseif varargin == "ama"
+	elseif varargin == "ama"
 
             println("gensysToAMA:running ama")
             println("gensysToAMA:converting gensys inputs to ama format")
@@ -118,7 +90,39 @@
             end
 
             println("gensysToAMA:done")
+	    
+#####
+#####  Implement below
+#####
+#============================================================
+        elseif varargin == "gensys" #assume calling as though original gensys but with a trailing optional arg
+            #arg1=varargin{1}
+            #switch arg1
+            #case 'gensys'
+
+            println("gensysToAMA:running gensys")
             
+            try
+                println("gensysToAMA: trying gensys on your matlab path")
+                (G1, CC, impact, fmat, fwt, ywt, gev, eu) = gensys(g0, g1, cc, psi, pi, div)
+                sss = run(`which gensys`)  # which('gensys')
+                println("used gensys located at:  $sss")
+            catch
+                println("gensysToAMA:  that failed, using gensys2007 in gensysToAMA dir")
+                (G1, CC, impact, fmat, fwt, ywt, gev, eu) = gensys2007(g0, g1, cc, psi, pi, div)
+                sss = run(`which gensys`) # which('gensys2007')
+                println("used gensys2007 located at:  $sss")
+                println("gensysToAMA:done")
+            end
+
+        elseif varargin == "gensys2007" # case 'gensys2007'
+            
+            println("gensysToAMA:running gensys2007")
+            (G1, CC, impact, fmat, fwt, ywt, gev, eu) = gensys2007(g0, g1, cc, psi, pi, div)
+            sss = run(`which gensys2007`) # which('gensys2007')
+            println("used gensys2007 located at:  $sss")
+            println("gensysToAMA:done")
+
         elseif varargin == "both"
             println("gensysToAMA:running both ama and gensys for comparison")
             parg1 = size(g0,1)
@@ -234,14 +238,15 @@
                 println("did not compute conversion, no comparisons to gensys output")
                 println("AMATime=$AMADone   genSysTime=$gensysDone")
             end
+#####
+##### Implement above
+#####
+==============================================================#
 
-            #otherwise
-            #error('gensysToAMA:unknown optional string')
-        #end
-            #otherwise
-            #error('gensysToAMA:wrong number of args')
-        #end
-        end
+	else
+	    println("gensysToAMA:unknown optional string")
+	end
+        
 
         return G1,CC,impact,fmat,fwt,ywt,gev,eu
     end
