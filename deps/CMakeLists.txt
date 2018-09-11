@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8.9)
 
+set(ENV{FC} /usr/local/bin/gfortran)
 
 project(AndersonMoore)
 
