@@ -5,7 +5,7 @@ Julia wrapper function that calls the c function callSparseAim.
 """
 function callSparseAim( hh, leads, lags )
 
-    sym = loadSparseAim()
+#    sym = loadSparseAim()
 
     # allocate space for the matrices and initialize inputs
     neq        = size(hh, 1)
@@ -20,7 +20,8 @@ function callSparseAim( hh, leads, lags )
     # use the library libSPARSEAMA to call c function ...
     # libAndersonMoore is a shared library that combines sparseAMA
     # and LAPACK. LAPACK must be compiled with -fPIC.
-    ccall(sym, Compat.Nothing,
+ccall((:callSparseAim ,"../deps/libAndersonMoore.so"), Compat.Nothing,
+#    ccall(callSparseAim, Compat.Nothing,
           (  Ptr{Float64}, Int32, Int32, Int32, Int32,
           Int32, Int32, Int32,
           Ptr{Float64}, Ptr{Float64}, Ptr{Float64}  ),
