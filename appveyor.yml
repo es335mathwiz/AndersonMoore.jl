@@ -34,11 +34,15 @@ install:
   # Run installer silently, output to C:\projects\julia
   - C:\projects\julia-binary.exe /S /D=C:\projects\julia
  
+ 
 build_script:
 # Need to convert from shallow to complete for Pkg.clone to work
   - IF EXIST .git\shallow (git fetch --unshallow)
+  - git checkout 41f1772e5
   - C:\projects\julia\bin\julia -e "versioninfo();
-      Pkg.clone(pwd(), \"AndersonMoore\"); Pkg.build(\"AndersonMoore\")"
+      if VERSION >= v\"0.7.0-\" using Pkg; end;
+      Pkg.add(\"AndersonMoore\") Pkg.build(\"AndersonMoore\")"
  
 test_script:
-  - C:\projects\julia\bin\julia --check-bounds=yes -e "Pkg.test(\"AndersonMoore\")"
+  - C:\projects\julia\bin\julia --check-bounds=yes -e "if VERSION >= v\"0.7.0-\" using Pkg; end;Pkg.test(\"AndersonMoore\")"
+
