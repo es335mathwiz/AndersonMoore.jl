@@ -1,12 +1,14 @@
+image: Visual Studio 2017
+
 environment:
   MINGW_DIR: C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin
   CYGWIN_DIR: C:\cygwin
 
   matrix:
   - JULIAVERSION: "julialang/bin/winnt/x86/0.6/julia-0.6-latest-win32.exe"
-    COMPILER: C:\MinGW\simewhere32\
+    COMPILER: C:\MinGW\bin\
   - JULIAVERSION: "julialang/bin/winnt/x64/0.6/julia-0.6-latest-win64.exe"
-    COMPILER: C:\MinGW\somewhere64\
+    COMPILER: C:\MinGW\bin\
 matrix:
   allow_failures:
     - JULIAVERSION: "julianightlies/bin/winnt/x86/julia-latest-win32.exe"
