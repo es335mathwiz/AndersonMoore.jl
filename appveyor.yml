@@ -41,7 +41,7 @@ build_script:
   - git checkout 41f1772e5
   - C:\projects\julia\bin\julia -e "versioninfo();
       if VERSION >= v\"0.7.0-\" using Pkg; end;
-      Pkg.add(\"AndersonMoore\") Pkg.build(\"AndersonMoore\")"
+      Pkg.add(\"AndersonMoore\"); Pkg.build(\"AndersonMoore\")"
  
 test_script:
   - C:\projects\julia\bin\julia --check-bounds=yes -e "if VERSION >= v\"0.7.0-\" using Pkg; end;Pkg.test(\"AndersonMoore\")"
