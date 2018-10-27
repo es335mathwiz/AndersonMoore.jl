@@ -44,7 +44,7 @@ before_install:
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - git checkout 41f1772e
-  - julia -e 'Pkg.add("AndersonMoore");Pkg.build("AndersonMoore"); Pkg.test("AndersonMoore"; coverage=true)'
+  - julia -e 'if VERSION>=v"0.7.0-" using Pkg;Pkg.add("AndersonMoore");Pkg.build("AndersonMoore"); Pkg.test("AndersonMoore"; coverage=true)'
 
 after_success:
   - |
