@@ -43,7 +43,7 @@ before_install:
 ## uncomment the following lines to override the default test script
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-  - julia -e 'Pkg.clone(pwd()); Pkg.build("AndersonMoore"); Pkg.test("AndersonMoore"; coverage=true)'
+  - julia -e 'Pkg.clone(pwd());Pkg.pin("AndersonMoore",v"0.1.0");Pkg.build("AndersonMoore"); Pkg.test("AndersonMoore"; coverage=true)'
 
 after_success:
   - |
