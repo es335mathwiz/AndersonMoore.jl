@@ -4,9 +4,9 @@ environment:
 
   matrix:
   - JULIAVERSION: "julialang/bin/winnt/x86/0.6/julia-0.6-latest-win32.exe"
-    COMPILER: C:\MinGW
+    COMPILER: C:\MinGW\simewhere32\
   - JULIAVERSION: "julialang/bin/winnt/x64/0.6/julia-0.6-latest-win64.exe"
-    COMPILER: C:\MinGW
+    COMPILER: C:\MinGW\somewhere64\
 matrix:
   allow_failures:
     - JULIAVERSION: "julianightlies/bin/winnt/x86/julia-latest-win32.exe"
