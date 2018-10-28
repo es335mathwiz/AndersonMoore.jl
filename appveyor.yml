@@ -75,6 +75,7 @@ matrix:
     COMPILER: C:\MinGW
   - JULIAVERSION: "julialang/bin/winnt/x64/0.6/julia-0.6-latest-win64.exe"
     COMPILER: C:\MinGW
+
 allow_failures:
     - JULIAVERSION: "julianightlies/bin/winnt/x86/julia-latest-win32.exe"
     - JULIAVERSION: "julianightlies/bin/winnt/x64/julia-latest-win64.exe"
