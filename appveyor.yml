@@ -105,7 +105,7 @@ install:
 # build_script:
 # Need to convert from shallow to complete for Pkg.clone to work
   - IF EXIST .git\shallow (git fetch --unshallow)
-  - C:\projects\julia\bin\julia -e "versioninfo();
-      Pkg.clone(pwd(), \"AndersonMoore\"); Pkg.build(\"AndersonMoore\")"
+  - C:\projects\julia\bin\julia -e "versioninfo(); if VERSION >= v\"0.7.0-\" using Pkg; end;
+      Pkg.pin(\"AndersonMoore\",v\"0.1.0"); Pkg.build(\"AndersonMoore\")"
 # test_script:
   - C:\projects\julia\bin\julia --check-bounds=yes -e "Pkg.test(\"AndersonMoore\")"
