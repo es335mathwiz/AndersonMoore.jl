@@ -10,7 +10,7 @@ environment:
 # Whether or not PR's get built is determined in the webhook settings
 branches:
   only:
-    - develop
+    - master
     - /^release-.*/
 
 # Note: use `[ci skip]` or `[skip ci]` anywhere in the commit message and AppVeyor won't be
