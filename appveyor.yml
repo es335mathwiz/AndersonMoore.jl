@@ -58,7 +58,7 @@ build_script:
   - ps: contrib/windows/install-cygwin.ps1
 #  - '"%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" x86_amd64'
   - C:\cygwin-%ARCH%\bin\sh.exe --login /cygdrive/c/projects/julia/contrib/windows/appveyor_build.sh
-
+ 
 test_script:
   - usr\bin\julia -e "Base.require(Main, :InteractiveUtils).versioninfo()"
   - usr\bin\julia --sysimage-native-code=no -e "true"
