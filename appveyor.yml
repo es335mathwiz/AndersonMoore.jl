@@ -32,6 +32,7 @@ build_script:
   - C:\julia\bin\julia -e "using InteractiveUtils;versioninfo(); if VERSION >= v\"0.7.0-\" using Pkg;Pkg.add(PackageSpec(name=\"AndersonMoore\",version=\"0.1.0\")) else Pkg.add(\"AndersonMoore\"); Pkg.pin(\"AndersonMoore\",v\"0.1.0\") end; Pkg.build(\"AndersonMoore\")"
 
 test_script:
+  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"
   - echo "%JL_TEST_SCRIPT%"
   - C:\julia\bin\julia -e "%JL_TEST_SCRIPT%"
 
