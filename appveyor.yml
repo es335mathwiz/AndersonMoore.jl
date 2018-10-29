@@ -71,9 +71,9 @@ environment:
   CYGWIN_DIR: C:\cygwin
 
   matrix:
-  - JULIAVERSION: "julialang/bin/winnt/x86/0.6/julia-0.6-latest-win32.exe"
+  - JULIAVERSION: "julialang/bin/winnt/x86/0.6.2/julia-0.6.2-latest-win32.exe"
     COMPILER: C:\MinGW
-  - JULIAVERSION: "julialang/bin/winnt/x64/0.6/julia-0.6-latest-win64.exe"
+  - JULIAVERSION: "julialang/bin/winnt/x64/0.6.2/julia-0.6.2-latest-win64.exe"
     COMPILER: C:\MinGW
 
 matrix:
