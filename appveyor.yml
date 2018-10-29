@@ -102,8 +102,8 @@ init:
 #   - set PATH=C:\Miniconda3;C:\Miniconda3\Scripts;%PATH%
 #   # Run installer silently, output to C:\projects\julia
 #   - C:\projects\julia-binary.exe /S /D=C:\projects\julia
-# build_script:
-# Need to convert from shallow to complete for Pkg.clone to work
+build_script:
+#Need to convert from shallow to complete for Pkg.clone to work
   - IF EXIST .git\shallow (git fetch --unshallow)
   - C:\projects\julia\bin\julia -e "versioninfo(); if VERSION >= v\"0.7.0-\" using Pkg; end;Pkg.add(\"AndersonMoore\");
       Pkg.pin(\"AndersonMoore\",v\"0.1.0\"); Pkg.build(\"AndersonMoore\")"
