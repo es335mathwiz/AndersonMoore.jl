@@ -15,7 +15,7 @@ matrix:
 
 branches:
   only:
-    - master
+    - develop
     - /release-.*/
 
 notifications:
@@ -26,7 +26,7 @@ notifications:
 
 install:
   - ps: iex ((new-object net.webclient).DownloadString("https://raw.githubusercontent.com/JuliaCI/Appveyor.jl/version-1/bin/install.ps1"))
-
+set JL_BUILD_SCRIPT="versioninfo(); if VERSION >= v\"0.7.0-\" using Pkg; end;Pkg.add(\"AndersonMoore\"); Pkg.pin(\"AndersonMoore\",v\"0.1.0\"); Pkg.build(\"AndersonMoore\")"
 build_script:
   - echo "%JL_BUILD_SCRIPT%"
   - C:\julia\bin\julia -e "%JL_BUILD_SCRIPT%"
