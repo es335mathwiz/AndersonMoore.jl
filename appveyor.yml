@@ -1,111 +1,69 @@
-# image: Visual Studio 2017
+environment:
+#  USEMSVC: "1"
+  matrix:
+  - ARCH: "i686"
+    JULIA_TEST_MAXRSS_MB: 500
+  - ARCH: "x86_64"
+    JULIA_TEST_MAXRSS_MB: 450
 
-# environment:
-#   MINGW_DIR: C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin
-#   CYGWIN_DIR: C:\cygwin
-
-#   matrix:
-#   - JULIAVERSION: "julialang/bin/winnt/x86/0.6/julia-0.6-latest-win32.exe"
-#     COMPILER: C:\MinGW\bin\
-#   - JULIAVERSION: "julialang/bin/winnt/x64/0.6/julia-0.6-latest-win64.exe"
-#     COMPILER: C:\MinGW\bin\
-# matrix:
-#   allow_failures:
-#     - JULIAVERSION: "julianightlies/bin/winnt/x86/julia-latest-win32.exe"
-#     - JULIAVERSION: "julianightlies/bin/winnt/x64/julia-latest-win64.exe"
-# branches:
-#   only:
-#     - develop
-#     - /release-.*/
-
-# notifications:
-#   - provider: Email
-#     on_build_success: false
-#     on_build_failure: false
-#     on_build_status_changed: false
-
-# init:
-#   - set PATH=%CYGWIN_DIR%;%PATH%
-
-# install: 
-#   # Download most recent Julia Windows binary
-#   - ps: (new-object net.webclient).DownloadFile(
-#         $("http://s3.amazonaws.com/"+$env:JULIAVERSION),
-#         "C:\projects\julia-binary.exe")
-#   - set PATH=C:\Miniconda3;C:\Miniconda3\Scripts;%PATH%
-#   # Run installer silently, output to C:\projects\julia
-#   - C:\projects\julia-binary.exe /S /D=C:\projects\julia
- 
- 
-# build_script:
-# # Need to convert from shallow to complete for Pkg.clone to work
-#   - IF EXIST .git\shallow (git fetch --unshallow)
-#   - git checkout 41f1772e5
-#   - C:\projects\julia\bin\julia -e "versioninfo();
-#       if VERSION >= v\"0.7.0-\" using Pkg; end;
-#       Pkg.add(\"AndersonMoore\"); Pkg.build(\"AndersonMoore\")"
- 
-# test_script:
-#   - C:\projects\julia\bin\julia --check-bounds=yes -e "if VERSION >= v\"0.7.0-\" using Pkg; end;Pkg.test(\"AndersonMoore\")"
-
-
-version: '{build}'
-
+# Only build on master and PR's for now, not personal branches
+# Whether or not PR's get built is determined in the webhook settings
 branches:
   only:
     - develop
-    - /release-.*/
+    - /^release-.*/
 
-image:
-- Visual Studio 2013
-- Visual Studio 2015
-- Visual Studio 2017
-configuration:
-- Release
-- Debug
-platform:
-- x64
+# Note: use `[ci skip]` or `[skip ci]` anywhere in the commit message and AppVeyor won't be
+# built for that commit. You can use `[skip appveyor]` to explicitly skip AppVeyor and
+# allow other CI to still run.
+skip_commits:
+# Add [av skip] to commit messages for docfixes, etc to reduce load on queue
+  message: /\[av skip\]/
+# Skip running CI for changes only to the documentation
+# https://github.com/JuliaLang/julia/pull/27356#discussion_r192536676
+# files:
+#   - doc/
 
-environment:
-  MINGW_DIR: C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin
-  CYGWIN_DIR: C:\cygwin
+notifications:
+  - provider: Email
+    on_build_success: false
+    on_build_failure: false
+    on_build_status_changed: false
 
-  matrix:
-  - JULIAVERSION: "julialang/bin/winnt/x86/0.6.2/julia-0.6.2-latest-win32.exe"
-    COMPILER: C:\MinGW
-  - JULIAVERSION: "julialang/bin/winnt/x64/0.6.2/julia-0.6.2-latest-win64.exe"
-    COMPILER: C:\MinGW
+clone_depth: 50
 
-matrix:
-  allow_failures:
-    - JULIAVERSION: "julianightlies/bin/winnt/x86/julia-latest-win32.exe"
-    - JULIAVERSION: "julianightlies/bin/winnt/x64/julia-latest-win64.exe"
-
-
-# skip unsupported combinations
 init:
-- set arch=
-- if "%arch%"=="Win64" ( set arch= Win64)
-- echo %arch%
-- echo %APPVEYOR_BUILD_WORKER_IMAGE%
-- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
-- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2015" ( set generator="Visual Studio 14 2015%arch%" )
-- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2013" ( set generator="Visual Studio 12 2013%arch%" )
-- echo %generator%
+# Carriage returns are bad
+  - git config --global core.autocrlf input
 
+cache:
+# Cache large downloads to avoid network unreliability
+  - C:\cygdownloads
+  - llvm-3.9.1-i686-w64-mingw32-juliadeps-r07.7z
+  - llvm-3.9.1-x86_64-w64-mingw32-juliadeps-r07.7z
+  - usr/bin/busybox.exe
+  - C:\ccache
 
-# install: 
-#   # Download most recent Julia Windows binary
-#   - ps: (new-object net.webclient).DownloadFile(
-#         $("http://s3.amazonaws.com/"+$env:JULIAVERSION),
-#         "C:\projects\julia-binary.exe")
-#   - set PATH=C:\Miniconda3;C:\Miniconda3\Scripts;%PATH%
-#   # Run installer silently, output to C:\projects\julia
-#   - C:\projects\julia-binary.exe /S /D=C:\projects\julia
 build_script:
-#Need to convert from shallow to complete for Pkg.clone to work
-  - IF EXIST .git\shallow (git fetch --unshallow)
-  - C:\projects\julia\bin\julia -e "versioninfo(); if VERSION >= v\"0.7.0-\" using Pkg; end;Pkg.add(\"AndersonMoore\");
-      Pkg.pin(\"AndersonMoore\",v\"0.1.0\"); Pkg.build(\"AndersonMoore\")"
-# test_script:
-  - C:\projects\julia\bin\julia --check-bounds=yes -e "Pkg.test(\"AndersonMoore\")"
+# If there's a newer build queued for the same PR, cancel this one
+  - ps: if ($env:APPVEYOR_PULL_REQUEST_NUMBER -and $env:APPVEYOR_BUILD_NUMBER -ne ((Invoke-RestMethod `
+        https://ci.appveyor.com/api/projects/$env:APPVEYOR_ACCOUNT_NAME/$env:APPVEYOR_PROJECT_SLUG/history?recordsNumber=50).builds | `
+        Where-Object pullRequestId -eq $env:APPVEYOR_PULL_REQUEST_NUMBER)[0].buildNumber) { `
+        throw "There are newer queued builds for this pull request, failing early." }
+# Remove C:\MinGW\bin from the path, the version of MinGW installed on
+# AppVeyor is not compatible with the cross-compiled Julia Windows binaries
+  - set PATH=%PATH:C:\MinGW\bin;=%
+# Remove git's msys2 from path, since it conflicts with cygwin1.dll
+  - set PATH=%PATH:C:\Program Files\Git\usr\bin;=%
+  - ps: contrib/windows/install-cygwin.ps1
+#  - '"%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" x86_amd64'
+  - C:\cygwin-%ARCH%\bin\sh.exe --login /cygdrive/c/projects/julia/contrib/windows/appveyor_build.sh
+
+test_script:
+  - usr\bin\julia -e "Base.require(Main, :InteractiveUtils).versioninfo()"
+  - usr\bin\julia --sysimage-native-code=no -e "true"
+  - cd julia-* && .\bin\julia.exe --check-bounds=yes share\julia\test\runtests.jl all &&
+      .\bin\julia.exe --check-bounds=yes share\julia\test\runtests.jl LibGit2/online Pkg/pkg download
+  - cd ..
+  - usr\bin\julia usr\share\julia\test\embedding\embedding-test.jl test\embedding\embedding.exe
+
