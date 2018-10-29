@@ -94,14 +94,14 @@ init:
 - echo %generator%
 
 
-install: 
-  # Download most recent Julia Windows binary
-  - ps: (new-object net.webclient).DownloadFile(
-        $("http://s3.amazonaws.com/"+$env:JULIAVERSION),
-        "C:\projects\julia-binary.exe")
-  - set PATH=C:\Miniconda3;C:\Miniconda3\Scripts;%PATH%
-  # Run installer silently, output to C:\projects\julia
-  - C:\projects\julia-binary.exe /S /D=C:\projects\julia
+# install: 
+#   # Download most recent Julia Windows binary
+#   - ps: (new-object net.webclient).DownloadFile(
+#         $("http://s3.amazonaws.com/"+$env:JULIAVERSION),
+#         "C:\projects\julia-binary.exe")
+#   - set PATH=C:\Miniconda3;C:\Miniconda3\Scripts;%PATH%
+#   # Run installer silently, output to C:\projects\julia
+#   - C:\projects\julia-binary.exe /S /D=C:\projects\julia
 # build_script:
 # Need to convert from shallow to complete for Pkg.clone to work
   - IF EXIST .git\shallow (git fetch --unshallow)
