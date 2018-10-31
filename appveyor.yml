@@ -2,6 +2,7 @@ image: Visual Studio 2017
 
 environment:
   C_MAKE_PROGRAM: C:\MinGW\bin\make
+  CMAKE_MAKE_PROGRAM: C:\MinGW\bin\make
 
   matrix:
     - julia_version: 1
@@ -42,6 +43,7 @@ build_script:
 test_script:
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"
   - echo "%C_MAKE_PROGRAM%"
+  - echo "%CMAKE_MAKE_PROGRAM%"
   - echo "%JL_TEST_SCRIPT%"
   - C:\julia\bin\julia -e "%JL_TEST_SCRIPT%"
 
