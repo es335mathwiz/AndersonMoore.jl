@@ -6,7 +6,7 @@ environment:
   # - julia_version: nightly
 
 environment:
-  C_MAKE_PROGGRAM: "C:\MinGW\bin\make"
+  - C_MAKE_PROGGRAM: "C:\MinGW\bin\make"
 
 
 platform:
