@@ -1,7 +1,7 @@
 image: Visual Studio 2017
 
 environment:
-  C_MAKE_PROGGRAM: C:\MinGW\bin\make
+  C_MAKE_PROGRAM: C:\MinGW\bin\make
 
   matrix:
     - julia_version: 1
