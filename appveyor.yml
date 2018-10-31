@@ -1,10 +1,10 @@
 image: Visual Studio 2017
-
+#C:\msys64\mingw64\bin
 environment:
 #  C_MAKE_PROGRAM: C:\MinGW\bin\make
 #  CMAKE_MAKE_PROGRAM: C:\MinGW\bin\make
 #  CMAKE_Fortran_COMPILER: C:\MinGW\bin\gfortran.exe
-  MINGW_DIR: C:\msys64\mingw64\bin
+  MINGW_DIR: C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw64\bin
   Path: C:\Python34-x64\;%MINGW_DIR%;%Path%
   matrix:
     -
