@@ -1,20 +1,25 @@
 cmake_minimum_required(VERSION 2.8.9)
 
-set(ENV{FC} /usr/local/bin/gfortran)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "usr/lib/")
 
-project(AndersonMoore)
 
+project(AMAC)
 enable_language(Fortran)
 
 find_package(BLAS REQUIRED)
 find_package(LAPACK REQUIRED)
-
 set(LIBS ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
 
-include_directories(include)
+include_directories(usr/include)
+file(GLOB SOURCES "src/AMA/*")
 
-file(GLOB SOURCES "src/*")
+add_library(AMAC SHARED ${SOURCES})
 
-add_library(AndersonMoore SHARED ${SOURCES})
+target_link_libraries(AMAC ${LIBS})
 
-target_link_libraries(AndersonMoore ${LIBS})
+SET_TARGET_PROPERTIES(AMAC PROPERTIES LINKER_LANGUAGE C)
+
+
+
+
+

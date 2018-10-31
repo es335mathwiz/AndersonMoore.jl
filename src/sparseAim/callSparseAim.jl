@@ -20,7 +20,7 @@ function callSparseAim( hh, leads, lags )
     # use the library libSPARSEAMA to call c function ...
     # libAndersonMoore is a shared library that combines sparseAMA
     # and LAPACK. LAPACK must be compiled with -fPIC.
-ccall((:callSparseAim ,"../deps/libAndersonMoore"), Compat.Nothing,
+ccall((:callSparseAim ,"../deps/usr/lib/libAMAC"), Compat.Nothing,
 #    ccall(callSparseAim, Compat.Nothing,
           (  Ptr{Float64}, Int32, Int32, Int32, Int32,
           Int32, Int32, Int32,
