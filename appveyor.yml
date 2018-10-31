@@ -38,7 +38,7 @@ install:
 
 build_script:
   - echo "%JL_BUILD_SCRIPT%"
-  - C:\julia\bin\julia -e "using InteractiveUtils;versioninfo(); if VERSION >= v\"0.7.0-\" using Pkg;Pkg.add(PackageSpec(name=\"AndersonMoore\"));Pkg.clone(\"https://github.com/es335mathwiz/AndersonMoore.jl.git\") else Pkg.add(\"AndersonMoore\");  end; Pkg.build(\"AndersonMoore\")"
+  - C:\julia\bin\julia -e "using InteractiveUtils;versioninfo(); if VERSION >= v\"0.7.0-\" using Pkg;Pkg.add(\"BinDeps\");Pkg.add(\"AndersonMoore\");Pkg.clone(\"https://github.com/es335mathwiz/AndersonMoore.jl.git\") else Pkg.add(\"AndersonMoore\");  end; Pkg.build(\"AndersonMoore\")"
 
 test_script:
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"
