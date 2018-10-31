@@ -7,7 +7,7 @@ environment:
   MINGW_DIR: C:\msys64\mingw64\bin
   Path: C:\Python34-x64\;%MINGW_DIR%;%Path%
   matrix:
--
+  -
       CMAKE_BUILD: MinGW
       STATIC_LIBS: false
       CC: "%MINGW_DIR%\\gcc.exe"
