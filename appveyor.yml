@@ -1,9 +1,9 @@
 image: Visual Studio 2017
 
 environment:
-  matrix:
-  - julia_version: 1
   - C_MAKE_PROGGRAM: C:\MinGW\bin\make
+  matrix:
+    - julia_version: 1
   # - julia_version: nightly
 
 
