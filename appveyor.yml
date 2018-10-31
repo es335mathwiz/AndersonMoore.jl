@@ -1,12 +1,20 @@
 image: Visual Studio 2017
 
 environment:
-  C_MAKE_PROGRAM: C:\MinGW\bin\make
-  CMAKE_MAKE_PROGRAM: C:\MinGW\bin\make
-  CMAKE_Fortran_COMPILER: C:\MinGW\bin\gfortran.exe
-
+#  C_MAKE_PROGRAM: C:\MinGW\bin\make
+#  CMAKE_MAKE_PROGRAM: C:\MinGW\bin\make
+#  CMAKE_Fortran_COMPILER: C:\MinGW\bin\gfortran.exe
+  MINGW_DIR: C:\msys64\mingw64\bin
+  Path: C:\Python34-x64\;%MINGW_DIR%;%Path%
   matrix:
-    - julia_version: 1
+-
+      CMAKE_BUILD: MinGW
+      STATIC_LIBS: false
+      CC: "%MINGW_DIR%\\gcc.exe"
+      CXX: "%MINGW_DIR%\\g++.exe"
+      FC: "%MINGW_DIR%\\gfortran.exe"
+      TMP_PATH: "C:\\Program Files (x86)\\CMake\\bin;C:\\Python34-x64;%MINGW_DIR%;C:\\Program Files\\Git\\cmd;C:\\msys64;C:\\Program Files\\Git\\usr\\bin"
+      julia_version: 1
 
   # - julia_version: nightly
 
