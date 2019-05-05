@@ -65,7 +65,7 @@ upperbnd = 1 + condn
 
 ```julia
 (b, rts, ia, nexact, nnumeric, lgroots, AMAcode) =
-     AndersonMooreAlg(h, neq, nlag, nlead, condn, upperbnd)
+     AndersonMooreAlg(h, neq, nlags, nleads, condn, upperbnd)
 ```
 *Note* - the above returns the tuple (b, rts, ia, nexact, nnumeric, lgroots, AMAcode)
 <ul>
